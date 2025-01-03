@@ -3313,16 +3313,21 @@ background-color: yellow;
 </tr>
 </tbody>
 </table></section><section id="resultados-preliminares" class="level2"><h2 class="anchored" data-anchor-id="resultados-preliminares">Resultados preliminares</h2>
-<p>Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a traves de algunos graficos. Primero cargar paquetes que vayamos a necesitar para crear los graficos: ::: {.cell layout-align=“center”}</p>
+<p>Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a traves de algunos graficos. Primero cargar paquetes que vayamos a necesitar para crear los graficos:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><p>:::</p>
-<p>Seguidamente arreglar un poco los datos para que quede todo correctamente: ::: {.cell layout-align=“center”}</p>
+</details>
+</div>
+<p>Seguidamente arreglar un poco los datos para que quede todo correctamente:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Recalcular los porcentajes</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>datos_filtrados <span class="ot">&lt;-</span> datos_filtrados <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje_Sexo =</span> (Total_Grupo <span class="sc">/</span> total_todas_edades) <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><p>:::</p>
-<p>Y ya empezamos con los graficos: ::: {.cell layout-align=“center”}</p>
+</details>
+</div>
+<p>Y ya empezamos con los graficos:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(datos_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Porcentaje_Sexo, <span class="at">fill =</span> Sexo)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>   <span class="co"># Crear barras apiladas</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                  <span class="co"># Convertir a gráfico circular</span></span>
@@ -3337,8 +3342,10 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>::: En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.</p>
-<p>Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables: ::: {.cell layout-align=“center”}</p>
+</div>
+<p>En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.</p>
+<p>Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Filtrar los datos para excluir &quot;Todas las edades&quot;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir el grupo &quot;Todas las edades&quot;</span></span>
@@ -3367,8 +3374,10 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>::: Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.</p>
-<p>También haremos un gráfico de barras con el núemero de personas en cada grupo de edad ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.</p>
+<p>También haremos un gráfico de barras con el núemero de personas en cada grupo de edad</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Filtrar y agrupar los datos para obtener el total por grupo de edad</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir &quot;Todas las edades&quot; si es necesario</span></span>
@@ -3404,7 +3413,7 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 <p>Ahora haremos un gráfico para ver en qué proporción los titulares son solo titulares o también trabajan en sus tierras</p>
 <div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Agrupar por Clase de titular</span></span>
@@ -3438,7 +3447,8 @@ background-color: yellow;
 </div>
 </div>
 </div>
-<p>Ahora vamos a trabajar con los segundos datos que hemos importado. Haremos primero un gáfico de barras con la producción por países el año 2023 ::: {.cell layout-align=“center”}</p>
+<p>Ahora vamos a trabajar con los segundos datos que hemos importado. Haremos primero un gáfico de barras con la producción por países el año 2023</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co"># Filtrar datos para el año 2023</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co"># Filtrar datos para el año 2023</span></span>
@@ -3481,8 +3491,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Filtrar los datos para Francia</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>data_france <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;France&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para Francia</span></span>
@@ -3502,8 +3513,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>data_spain <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para España</span></span>
@@ -3523,8 +3535,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Filtrar datos para el año 2023</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>)</span>
@@ -3551,8 +3564,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción ::: {.cell layout-align=“center”}</p>
+</div>
+<p>La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Filtrar datos para el año 2023 y excluir agrupaciones no deseadas</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
@@ -3600,8 +3614,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Como vemos, los tres países con mayor producción agraria suman casi el 45% de la producción total europea, veamos qué pasa si añadimos España que era el cuarto: ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Como vemos, los tres países con mayor producción agraria suman casi el 45% de la producción total europea, veamos qué pasa si añadimos España que era el cuarto:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;European|Euro area&quot;</span>, geo))  <span class="co"># Excluir filas con &quot;European&quot; o &quot;Euro area&quot;</span></span>
@@ -3637,7 +3652,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>::: Comparativa por países ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Comparativa por países</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Filtrar datos para eliminar países con más de una palabra en el nombre</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>data_filtered_cleaned <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Excluir países con más de una palabra en &#39;geo&#39;</span></span>
@@ -3659,8 +3676,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">#Vamos a arreglarlos un poco para no tener que estar haciéndolo en cada apartado:</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="co"># Filtrar el dataset eliminando países con nombres de más de una palabra</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>data_cleaned <span class="ot">&lt;-</span> datos_precios <span class="sc">%&gt;%</span></span>
@@ -3687,8 +3705,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Veamos ahora los precios en España: ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Veamos ahora los precios en España:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>data_spain <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>data_filtered <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
@@ -3706,8 +3725,9 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>Ahora haremos la media de todos los países: ::: {.cell layout-align=“center”}</p>
+</div>
+<p>Ahora haremos la media de todos los países:</p>
+<div class="cell" data-layout-align="center">
 <details open class="code-fold"><summary>Código</summary><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Calcular la media global por año</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>global_mean <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span></span>
@@ -3743,7 +3763,7 @@ background-color: yellow;
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 <hr></section><section id="conclusiones" class="level2"><h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
 <ol type="1">
 <li>Demografía agrícola</li>
@@ -4335,393 +4355,410 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-102"><a href="#cb17-102"></a><span class="fu">## Resultados preliminares</span></span>
 <span id="cb17-103"><a href="#cb17-103"></a>Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a traves de algunos graficos.</span>
 <span id="cb17-104"><a href="#cb17-104"></a>Primero cargar paquetes que vayamos a necesitar para crear los graficos:</span>
-<span id="cb17-107"><a href="#cb17-107"></a><span class="in">```{r}</span></span>
-<span id="cb17-108"><a href="#cb17-108"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
-<span id="cb17-109"><a href="#cb17-109"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-110"><a href="#cb17-110"></a></span>
-<span id="cb17-111"><a href="#cb17-111"></a><span class="in">```</span></span>
-<span id="cb17-112"><a href="#cb17-112"></a></span>
-<span id="cb17-113"><a href="#cb17-113"></a>Seguidamente arreglar un poco los datos para que quede todo correctamente:</span>
-<span id="cb17-116"><a href="#cb17-116"></a><span class="in">```{r}</span></span>
-<span id="cb17-117"><a href="#cb17-117"></a><span class="co"># Recalcular los porcentajes</span></span>
-<span id="cb17-118"><a href="#cb17-118"></a>datos_filtrados <span class="ot">&lt;-</span> datos_filtrados <span class="sc">%&gt;%</span></span>
-<span id="cb17-119"><a href="#cb17-119"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje_Sexo =</span> (Total_Grupo <span class="sc">/</span> total_todas_edades) <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb17-120"><a href="#cb17-120"></a><span class="in">```</span></span>
-<span id="cb17-121"><a href="#cb17-121"></a></span>
-<span id="cb17-122"><a href="#cb17-122"></a>Y ya empezamos con los graficos:</span>
-<span id="cb17-125"><a href="#cb17-125"></a><span class="in">```{r}</span></span>
-<span id="cb17-126"><a href="#cb17-126"></a><span class="fu">ggplot</span>(datos_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Porcentaje_Sexo, <span class="at">fill =</span> Sexo)) <span class="sc">+</span></span>
-<span id="cb17-127"><a href="#cb17-127"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>   <span class="co"># Crear barras apiladas</span></span>
-<span id="cb17-128"><a href="#cb17-128"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                  <span class="co"># Convertir a gráfico circular</span></span>
-<span id="cb17-129"><a href="#cb17-129"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Sexo (Todas las edades)&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb17-130"><a href="#cb17-130"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                              <span class="co"># Eliminar ejes innecesarios</span></span>
-<span id="cb17-131"><a href="#cb17-131"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#1f77b4&quot;</span>, <span class="st">&quot;#ff7f0e&quot;</span>)) <span class="sc">+</span>       <span class="co"># Colores personalizados</span></span>
-<span id="cb17-132"><a href="#cb17-132"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Porcentaje_Sexo, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-133"><a href="#cb17-133"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>) <span class="co"># Añadir etiquetas porcentuales</span></span>
-<span id="cb17-134"><a href="#cb17-134"></a><span class="in">```</span></span>
-<span id="cb17-135"><a href="#cb17-135"></a>En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.</span>
-<span id="cb17-136"><a href="#cb17-136"></a></span>
-<span id="cb17-137"><a href="#cb17-137"></a></span>
-<span id="cb17-138"><a href="#cb17-138"></a>Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables:</span>
-<span id="cb17-141"><a href="#cb17-141"></a><span class="in">```{r}</span></span>
-<span id="cb17-142"><a href="#cb17-142"></a><span class="co"># Filtrar los datos para excluir &quot;Todas las edades&quot;</span></span>
-<span id="cb17-143"><a href="#cb17-143"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb17-144"><a href="#cb17-144"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir el grupo &quot;Todas las edades&quot;</span></span>
-<span id="cb17-145"><a href="#cb17-145"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>                       <span class="co"># Agrupar por Grupos de edad</span></span>
-<span id="cb17-146"><a href="#cb17-146"></a>  <span class="fu">summarise</span>(<span class="at">Total_Grupo =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),    <span class="co"># Sumar el total por grupo de edad</span></span>
-<span id="cb17-147"><a href="#cb17-147"></a>            <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)                          <span class="co"># Eliminar agrupaciones</span></span>
-<span id="cb17-148"><a href="#cb17-148"></a></span>
-<span id="cb17-149"><a href="#cb17-149"></a><span class="co"># Calcular el total general y los porcentajes</span></span>
-<span id="cb17-150"><a href="#cb17-150"></a>total_general <span class="ot">&lt;-</span> <span class="fu">sum</span>(datos_por_edad<span class="sc">$</span>Total_Grupo, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb17-151"><a href="#cb17-151"></a>datos_por_edad <span class="ot">&lt;-</span> datos_por_edad <span class="sc">%&gt;%</span></span>
-<span id="cb17-152"><a href="#cb17-152"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje_Grupo =</span> (Total_Grupo <span class="sc">/</span> total_general) <span class="sc">*</span> <span class="dv">100</span>)  <span class="co"># Calcular el porcentaje</span></span>
+<span id="cb17-105"><a href="#cb17-105"></a></span>
+<span id="cb17-108"><a href="#cb17-108"></a><span class="in">```{r}</span></span>
+<span id="cb17-109"><a href="#cb17-109"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb17-110"><a href="#cb17-110"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-111"><a href="#cb17-111"></a></span>
+<span id="cb17-112"><a href="#cb17-112"></a><span class="in">```</span></span>
+<span id="cb17-113"><a href="#cb17-113"></a></span>
+<span id="cb17-114"><a href="#cb17-114"></a>Seguidamente arreglar un poco los datos para que quede todo correctamente:</span>
+<span id="cb17-115"><a href="#cb17-115"></a></span>
+<span id="cb17-118"><a href="#cb17-118"></a><span class="in">```{r}</span></span>
+<span id="cb17-119"><a href="#cb17-119"></a><span class="co"># Recalcular los porcentajes</span></span>
+<span id="cb17-120"><a href="#cb17-120"></a>datos_filtrados <span class="ot">&lt;-</span> datos_filtrados <span class="sc">%&gt;%</span></span>
+<span id="cb17-121"><a href="#cb17-121"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje_Sexo =</span> (Total_Grupo <span class="sc">/</span> total_todas_edades) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb17-122"><a href="#cb17-122"></a><span class="in">```</span></span>
+<span id="cb17-123"><a href="#cb17-123"></a></span>
+<span id="cb17-124"><a href="#cb17-124"></a>Y ya empezamos con los graficos:</span>
+<span id="cb17-125"><a href="#cb17-125"></a></span>
+<span id="cb17-128"><a href="#cb17-128"></a><span class="in">```{r}</span></span>
+<span id="cb17-129"><a href="#cb17-129"></a><span class="fu">ggplot</span>(datos_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Porcentaje_Sexo, <span class="at">fill =</span> Sexo)) <span class="sc">+</span></span>
+<span id="cb17-130"><a href="#cb17-130"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>   <span class="co"># Crear barras apiladas</span></span>
+<span id="cb17-131"><a href="#cb17-131"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                  <span class="co"># Convertir a gráfico circular</span></span>
+<span id="cb17-132"><a href="#cb17-132"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Sexo (Todas las edades)&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-133"><a href="#cb17-133"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                              <span class="co"># Eliminar ejes innecesarios</span></span>
+<span id="cb17-134"><a href="#cb17-134"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#1f77b4&quot;</span>, <span class="st">&quot;#ff7f0e&quot;</span>)) <span class="sc">+</span>       <span class="co"># Colores personalizados</span></span>
+<span id="cb17-135"><a href="#cb17-135"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Porcentaje_Sexo, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-136"><a href="#cb17-136"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>) <span class="co"># Añadir etiquetas porcentuales</span></span>
+<span id="cb17-137"><a href="#cb17-137"></a><span class="in">```</span></span>
+<span id="cb17-138"><a href="#cb17-138"></a></span>
+<span id="cb17-139"><a href="#cb17-139"></a>En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.</span>
+<span id="cb17-140"><a href="#cb17-140"></a></span>
+<span id="cb17-141"><a href="#cb17-141"></a></span>
+<span id="cb17-142"><a href="#cb17-142"></a>Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables:</span>
+<span id="cb17-143"><a href="#cb17-143"></a></span>
+<span id="cb17-146"><a href="#cb17-146"></a><span class="in">```{r}</span></span>
+<span id="cb17-147"><a href="#cb17-147"></a><span class="co"># Filtrar los datos para excluir &quot;Todas las edades&quot;</span></span>
+<span id="cb17-148"><a href="#cb17-148"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb17-149"><a href="#cb17-149"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir el grupo &quot;Todas las edades&quot;</span></span>
+<span id="cb17-150"><a href="#cb17-150"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>                       <span class="co"># Agrupar por Grupos de edad</span></span>
+<span id="cb17-151"><a href="#cb17-151"></a>  <span class="fu">summarise</span>(<span class="at">Total_Grupo =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),    <span class="co"># Sumar el total por grupo de edad</span></span>
+<span id="cb17-152"><a href="#cb17-152"></a>            <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)                          <span class="co"># Eliminar agrupaciones</span></span>
 <span id="cb17-153"><a href="#cb17-153"></a></span>
-<span id="cb17-154"><a href="#cb17-154"></a><span class="co"># Crear el gráfico circular con ggplot2</span></span>
-<span id="cb17-155"><a href="#cb17-155"></a><span class="fu">ggplot</span>(datos_por_edad, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Porcentaje_Grupo, <span class="at">fill =</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb17-156"><a href="#cb17-156"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>       <span class="co"># Crear barras apiladas</span></span>
-<span id="cb17-157"><a href="#cb17-157"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                      <span class="co"># Convertir a gráfico circular</span></span>
-<span id="cb17-158"><a href="#cb17-158"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Grupos de Edad (sin &#39;Todas las edades&#39;)&quot;</span>,</span>
-<span id="cb17-159"><a href="#cb17-159"></a>       <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb17-160"><a href="#cb17-160"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                                  <span class="co"># Eliminar ejes innecesarios</span></span>
-<span id="cb17-161"><a href="#cb17-161"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span>                           <span class="co"># Paleta de colores</span></span>
-<span id="cb17-162"><a href="#cb17-162"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Porcentaje_Grupo, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-163"><a href="#cb17-163"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)     <span class="co"># Añadir etiquetas porcentuales</span></span>
-<span id="cb17-164"><a href="#cb17-164"></a><span class="in">```</span></span>
-<span id="cb17-165"><a href="#cb17-165"></a>Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.</span>
-<span id="cb17-166"><a href="#cb17-166"></a></span>
-<span id="cb17-167"><a href="#cb17-167"></a></span>
-<span id="cb17-168"><a href="#cb17-168"></a>También haremos un gráfico de barras con el núemero de personas en cada grupo de edad</span>
-<span id="cb17-171"><a href="#cb17-171"></a><span class="in">```{r}</span></span>
-<span id="cb17-172"><a href="#cb17-172"></a><span class="co"># Filtrar y agrupar los datos para obtener el total por grupo de edad</span></span>
-<span id="cb17-173"><a href="#cb17-173"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb17-174"><a href="#cb17-174"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir &quot;Todas las edades&quot; si es necesario</span></span>
-<span id="cb17-175"><a href="#cb17-175"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-176"><a href="#cb17-176"></a>  <span class="fu">summarise</span>(<span class="at">Total_Grupo =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)  <span class="co"># Calcular total por grupo</span></span>
-<span id="cb17-177"><a href="#cb17-177"></a></span>
-<span id="cb17-178"><a href="#cb17-178"></a></span>
-<span id="cb17-179"><a href="#cb17-179"></a><span class="co"># Abreviar nombres largos</span></span>
-<span id="cb17-180"><a href="#cb17-180"></a>datos_por_edad <span class="ot">&lt;-</span> datos_por_edad <span class="sc">%&gt;%</span></span>
-<span id="cb17-181"><a href="#cb17-181"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_when</span>(</span>
-<span id="cb17-182"><a href="#cb17-182"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;Menores de 25 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;Menores 25&quot;</span>,</span>
-<span id="cb17-183"><a href="#cb17-183"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 25 a 34 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;25-34&quot;</span>,</span>
-<span id="cb17-184"><a href="#cb17-184"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 35 a 44 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;35-44&quot;</span>,</span>
-<span id="cb17-185"><a href="#cb17-185"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 45 a 54 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;45-54&quot;</span>,</span>
-<span id="cb17-186"><a href="#cb17-186"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span></span>
-<span id="cb17-187"><a href="#cb17-187"></a>  ))</span>
-<span id="cb17-188"><a href="#cb17-188"></a></span>
-<span id="cb17-189"><a href="#cb17-189"></a><span class="co"># Crear gráfico</span></span>
-<span id="cb17-190"><a href="#cb17-190"></a><span class="fu">ggplot</span>(datos_por_edad, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>, <span class="sc">-</span>Total_Grupo), <span class="at">y =</span> Total_Grupo <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">fill =</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb17-191"><a href="#cb17-191"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>         <span class="co"># Gráfico de barras</span></span>
-<span id="cb17-192"><a href="#cb17-192"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Grupos de Edad&quot;</span>,</span>
-<span id="cb17-193"><a href="#cb17-193"></a>       <span class="at">x =</span> <span class="st">&quot;Grupos de Edad&quot;</span>,</span>
-<span id="cb17-194"><a href="#cb17-194"></a>       <span class="at">y =</span> <span class="st">&quot;Total (en miles)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-195"><a href="#cb17-195"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                      <span class="co"># Tema limpio</span></span>
-<span id="cb17-196"><a href="#cb17-196"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span>           <span class="co"># Formatear eje Y</span></span>
-<span id="cb17-197"><a href="#cb17-197"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">guide =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span>  <span class="co"># Colores y sin leyenda</span></span>
-<span id="cb17-198"><a href="#cb17-198"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>)) <span class="sc">+</span>  <span class="co"># Rotación y tamaño</span></span>
-<span id="cb17-199"><a href="#cb17-199"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Total_Grupo <span class="sc">/</span> <span class="dv">1000</span>, <span class="dv">1</span>), <span class="st">&quot;k&quot;</span>)),      <span class="co"># Etiquetas dentro de las barras</span></span>
-<span id="cb17-200"><a href="#cb17-200"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb17-201"><a href="#cb17-201"></a><span class="in">```</span></span>
-<span id="cb17-202"><a href="#cb17-202"></a></span>
-<span id="cb17-203"><a href="#cb17-203"></a>Ahora haremos un gráfico para ver en qué proporción los titulares son solo titulares o también trabajan en sus tierras</span>
-<span id="cb17-204"><a href="#cb17-204"></a></span>
-<span id="cb17-207"><a href="#cb17-207"></a><span class="in">```{r}</span></span>
-<span id="cb17-208"><a href="#cb17-208"></a><span class="co"># Agrupar por Clase de titular</span></span>
-<span id="cb17-209"><a href="#cb17-209"></a>proporciones_titulares <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb17-210"><a href="#cb17-210"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Clase de titular</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-211"><a href="#cb17-211"></a>  <span class="fu">summarise</span>(<span class="at">Total_Clase =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)  <span class="co"># Sumar totales por clase</span></span>
-<span id="cb17-212"><a href="#cb17-212"></a></span>
-<span id="cb17-213"><a href="#cb17-213"></a><span class="co"># Calcular el total general</span></span>
-<span id="cb17-214"><a href="#cb17-214"></a>total_titulares <span class="ot">&lt;-</span> <span class="fu">sum</span>(proporciones_titulares<span class="sc">$</span>Total_Clase, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb17-215"><a href="#cb17-215"></a></span>
-<span id="cb17-216"><a href="#cb17-216"></a><span class="co"># Añadir la proporción a cada categoría</span></span>
-<span id="cb17-217"><a href="#cb17-217"></a>proporciones_titulares <span class="ot">&lt;-</span> proporciones_titulares <span class="sc">%&gt;%</span></span>
-<span id="cb17-218"><a href="#cb17-218"></a>  <span class="fu">mutate</span>(Proporción <span class="ot">=</span> (Total_Clase <span class="sc">/</span> total_titulares) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb17-154"><a href="#cb17-154"></a><span class="co"># Calcular el total general y los porcentajes</span></span>
+<span id="cb17-155"><a href="#cb17-155"></a>total_general <span class="ot">&lt;-</span> <span class="fu">sum</span>(datos_por_edad<span class="sc">$</span>Total_Grupo, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-156"><a href="#cb17-156"></a>datos_por_edad <span class="ot">&lt;-</span> datos_por_edad <span class="sc">%&gt;%</span></span>
+<span id="cb17-157"><a href="#cb17-157"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje_Grupo =</span> (Total_Grupo <span class="sc">/</span> total_general) <span class="sc">*</span> <span class="dv">100</span>)  <span class="co"># Calcular el porcentaje</span></span>
+<span id="cb17-158"><a href="#cb17-158"></a></span>
+<span id="cb17-159"><a href="#cb17-159"></a><span class="co"># Crear el gráfico circular con ggplot2</span></span>
+<span id="cb17-160"><a href="#cb17-160"></a><span class="fu">ggplot</span>(datos_por_edad, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Porcentaje_Grupo, <span class="at">fill =</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb17-161"><a href="#cb17-161"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>       <span class="co"># Crear barras apiladas</span></span>
+<span id="cb17-162"><a href="#cb17-162"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                      <span class="co"># Convertir a gráfico circular</span></span>
+<span id="cb17-163"><a href="#cb17-163"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Grupos de Edad (sin &#39;Todas las edades&#39;)&quot;</span>,</span>
+<span id="cb17-164"><a href="#cb17-164"></a>       <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-165"><a href="#cb17-165"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                                  <span class="co"># Eliminar ejes innecesarios</span></span>
+<span id="cb17-166"><a href="#cb17-166"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span>                           <span class="co"># Paleta de colores</span></span>
+<span id="cb17-167"><a href="#cb17-167"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Porcentaje_Grupo, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-168"><a href="#cb17-168"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)     <span class="co"># Añadir etiquetas porcentuales</span></span>
+<span id="cb17-169"><a href="#cb17-169"></a><span class="in">```</span></span>
+<span id="cb17-170"><a href="#cb17-170"></a></span>
+<span id="cb17-171"><a href="#cb17-171"></a>Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.</span>
+<span id="cb17-172"><a href="#cb17-172"></a></span>
+<span id="cb17-173"><a href="#cb17-173"></a></span>
+<span id="cb17-174"><a href="#cb17-174"></a>También haremos un gráfico de barras con el núemero de personas en cada grupo de edad</span>
+<span id="cb17-175"><a href="#cb17-175"></a></span>
+<span id="cb17-178"><a href="#cb17-178"></a><span class="in">```{r}</span></span>
+<span id="cb17-179"><a href="#cb17-179"></a><span class="co"># Filtrar y agrupar los datos para obtener el total por grupo de edad</span></span>
+<span id="cb17-180"><a href="#cb17-180"></a>datos_por_edad <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb17-181"><a href="#cb17-181"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Todas las edades&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># Excluir &quot;Todas las edades&quot; si es necesario</span></span>
+<span id="cb17-182"><a href="#cb17-182"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-183"><a href="#cb17-183"></a>  <span class="fu">summarise</span>(<span class="at">Total_Grupo =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)  <span class="co"># Calcular total por grupo</span></span>
+<span id="cb17-184"><a href="#cb17-184"></a></span>
+<span id="cb17-185"><a href="#cb17-185"></a></span>
+<span id="cb17-186"><a href="#cb17-186"></a><span class="co"># Abreviar nombres largos</span></span>
+<span id="cb17-187"><a href="#cb17-187"></a>datos_por_edad <span class="ot">&lt;-</span> datos_por_edad <span class="sc">%&gt;%</span></span>
+<span id="cb17-188"><a href="#cb17-188"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-189"><a href="#cb17-189"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;Menores de 25 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;Menores 25&quot;</span>,</span>
+<span id="cb17-190"><a href="#cb17-190"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 25 a 34 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;25-34&quot;</span>,</span>
+<span id="cb17-191"><a href="#cb17-191"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 35 a 44 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;35-44&quot;</span>,</span>
+<span id="cb17-192"><a href="#cb17-192"></a>    <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;De 45 a 54 años&quot;</span> <span class="sc">~</span> <span class="st">&quot;45-54&quot;</span>,</span>
+<span id="cb17-193"><a href="#cb17-193"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span></span>
+<span id="cb17-194"><a href="#cb17-194"></a>  ))</span>
+<span id="cb17-195"><a href="#cb17-195"></a></span>
+<span id="cb17-196"><a href="#cb17-196"></a><span class="co"># Crear gráfico</span></span>
+<span id="cb17-197"><a href="#cb17-197"></a><span class="fu">ggplot</span>(datos_por_edad, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(<span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>, <span class="sc">-</span>Total_Grupo), <span class="at">y =</span> Total_Grupo <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">fill =</span> <span class="st">`</span><span class="at">Grupos de edad</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb17-198"><a href="#cb17-198"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>         <span class="co"># Gráfico de barras</span></span>
+<span id="cb17-199"><a href="#cb17-199"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución por Grupos de Edad&quot;</span>,</span>
+<span id="cb17-200"><a href="#cb17-200"></a>       <span class="at">x =</span> <span class="st">&quot;Grupos de Edad&quot;</span>,</span>
+<span id="cb17-201"><a href="#cb17-201"></a>       <span class="at">y =</span> <span class="st">&quot;Total (en miles)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-202"><a href="#cb17-202"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                      <span class="co"># Tema limpio</span></span>
+<span id="cb17-203"><a href="#cb17-203"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span>           <span class="co"># Formatear eje Y</span></span>
+<span id="cb17-204"><a href="#cb17-204"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">guide =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span>  <span class="co"># Colores y sin leyenda</span></span>
+<span id="cb17-205"><a href="#cb17-205"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>)) <span class="sc">+</span>  <span class="co"># Rotación y tamaño</span></span>
+<span id="cb17-206"><a href="#cb17-206"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Total_Grupo <span class="sc">/</span> <span class="dv">1000</span>, <span class="dv">1</span>), <span class="st">&quot;k&quot;</span>)),      <span class="co"># Etiquetas dentro de las barras</span></span>
+<span id="cb17-207"><a href="#cb17-207"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb17-208"><a href="#cb17-208"></a><span class="in">```</span></span>
+<span id="cb17-209"><a href="#cb17-209"></a></span>
+<span id="cb17-210"><a href="#cb17-210"></a>Ahora haremos un gráfico para ver en qué proporción los titulares son solo titulares o también trabajan en sus tierras</span>
+<span id="cb17-211"><a href="#cb17-211"></a></span>
+<span id="cb17-214"><a href="#cb17-214"></a><span class="in">```{r}</span></span>
+<span id="cb17-215"><a href="#cb17-215"></a><span class="co"># Agrupar por Clase de titular</span></span>
+<span id="cb17-216"><a href="#cb17-216"></a>proporciones_titulares <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb17-217"><a href="#cb17-217"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Clase de titular</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-218"><a href="#cb17-218"></a>  <span class="fu">summarise</span>(<span class="at">Total_Clase =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)  <span class="co"># Sumar totales por clase</span></span>
 <span id="cb17-219"><a href="#cb17-219"></a></span>
-<span id="cb17-220"><a href="#cb17-220"></a></span>
-<span id="cb17-221"><a href="#cb17-221"></a></span>
-<span id="cb17-222"><a href="#cb17-222"></a><span class="co"># Crear un gráfico circular para visualizar las proporciones</span></span>
-<span id="cb17-223"><a href="#cb17-223"></a><span class="fu">ggplot</span>(proporciones_titulares, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Proporción, <span class="at">fill =</span> <span class="st">`</span><span class="at">Clase de titular</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb17-224"><a href="#cb17-224"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>       <span class="co"># Crear barras apiladas</span></span>
-<span id="cb17-225"><a href="#cb17-225"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                      <span class="co"># Convertir a gráfico circular</span></span>
-<span id="cb17-226"><a href="#cb17-226"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Proporción de Titulares y Titulares jefes de explotación&quot;</span>,</span>
-<span id="cb17-227"><a href="#cb17-227"></a>       <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb17-228"><a href="#cb17-228"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                                  <span class="co"># Eliminar ejes innecesarios</span></span>
-<span id="cb17-229"><a href="#cb17-229"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span>                           <span class="co"># Paleta de colores</span></span>
-<span id="cb17-230"><a href="#cb17-230"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Proporción, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-231"><a href="#cb17-231"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)     <span class="co"># Añadir etiquetas porcentuales</span></span>
-<span id="cb17-232"><a href="#cb17-232"></a></span>
-<span id="cb17-233"><a href="#cb17-233"></a><span class="in">```</span></span>
-<span id="cb17-234"><a href="#cb17-234"></a></span>
-<span id="cb17-235"><a href="#cb17-235"></a></span>
-<span id="cb17-236"><a href="#cb17-236"></a></span>
-<span id="cb17-237"><a href="#cb17-237"></a></span>
-<span id="cb17-238"><a href="#cb17-238"></a>Ahora vamos a trabajar con los segundos datos que hemos importado.</span>
-<span id="cb17-239"><a href="#cb17-239"></a>Haremos primero un gáfico de barras con la producción por países el año 2023</span>
-<span id="cb17-242"><a href="#cb17-242"></a><span class="in">```{r}</span></span>
-<span id="cb17-243"><a href="#cb17-243"></a><span class="co"># Filtrar datos para el año 2023</span></span>
-<span id="cb17-244"><a href="#cb17-244"></a><span class="co"># Filtrar datos para el año 2023</span></span>
-<span id="cb17-245"><a href="#cb17-245"></a>data_filtered <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-246"><a href="#cb17-246"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Eliminar filas donde &#39;Geo&#39; tiene un espacio</span></span>
-<span id="cb17-247"><a href="#cb17-247"></a>data_2023 <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb17-248"><a href="#cb17-248"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="fu">max</span>(TIME_PERIOD, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>                <span class="co"># Filtrar datos para 2023</span></span>
-<span id="cb17-249"><a href="#cb17-249"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span>                       <span class="co"># Agrupar por países</span></span>
-<span id="cb17-250"><a href="#cb17-250"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co"># Sumar producción</span></span>
-<span id="cb17-251"><a href="#cb17-251"></a>  <span class="fu">arrange</span>(Total_Production)               <span class="co"># Ordenar por producción</span></span>
-<span id="cb17-252"><a href="#cb17-252"></a></span>
-<span id="cb17-253"><a href="#cb17-253"></a><span class="co"># Verificar los datos procesados</span></span>
-<span id="cb17-254"><a href="#cb17-254"></a><span class="fu">print</span>(data_2023)</span>
-<span id="cb17-255"><a href="#cb17-255"></a></span>
-<span id="cb17-256"><a href="#cb17-256"></a><span class="co"># Crear el gráfico de barras horizontal</span></span>
-<span id="cb17-257"><a href="#cb17-257"></a><span class="fu">ggplot</span>(data_2023, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(geo, Total_Production), <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
-<span id="cb17-258"><a href="#cb17-258"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-259"><a href="#cb17-259"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>                          <span class="co"># Invertir el gráfico para barras horizontales</span></span>
-<span id="cb17-260"><a href="#cb17-260"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Producción Agrícola por País (2023)&quot;</span>,</span>
-<span id="cb17-261"><a href="#cb17-261"></a>       <span class="at">x =</span> <span class="st">&quot;País&quot;</span>,</span>
-<span id="cb17-262"><a href="#cb17-262"></a>       <span class="at">y =</span> <span class="st">&quot;Producción (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-263"><a href="#cb17-263"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-264"><a href="#cb17-264"></a><span class="in">```</span></span>
-<span id="cb17-265"><a href="#cb17-265"></a></span>
-<span id="cb17-266"><a href="#cb17-266"></a></span>
-<span id="cb17-267"><a href="#cb17-267"></a></span>
-<span id="cb17-268"><a href="#cb17-268"></a>Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años</span>
-<span id="cb17-271"><a href="#cb17-271"></a><span class="in">```{r}</span></span>
-<span id="cb17-272"><a href="#cb17-272"></a><span class="co"># Filtrar los datos para Francia</span></span>
-<span id="cb17-273"><a href="#cb17-273"></a>data_france <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-274"><a href="#cb17-274"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;France&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para Francia</span></span>
-<span id="cb17-275"><a href="#cb17-275"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span>           <span class="co"># Agrupar por año</span></span>
-<span id="cb17-276"><a href="#cb17-276"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Sumar la producción por año</span></span>
-<span id="cb17-277"><a href="#cb17-277"></a></span>
-<span id="cb17-278"><a href="#cb17-278"></a><span class="co"># Crear el gráfico de barras</span></span>
-<span id="cb17-279"><a href="#cb17-279"></a><span class="fu">ggplot</span>(data_france, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
-<span id="cb17-280"><a href="#cb17-280"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-281"><a href="#cb17-281"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la Producción Agrícola en Francia&quot;</span>,</span>
-<span id="cb17-282"><a href="#cb17-282"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
-<span id="cb17-283"><a href="#cb17-283"></a>       <span class="at">y =</span> <span class="st">&quot;Producción Agrícola (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-284"><a href="#cb17-284"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-285"><a href="#cb17-285"></a><span class="in">```</span></span>
-<span id="cb17-286"><a href="#cb17-286"></a></span>
-<span id="cb17-287"><a href="#cb17-287"></a>Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años</span>
-<span id="cb17-290"><a href="#cb17-290"></a><span class="in">```{r}</span></span>
-<span id="cb17-291"><a href="#cb17-291"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-292"><a href="#cb17-292"></a>data_spain <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-293"><a href="#cb17-293"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para España</span></span>
-<span id="cb17-294"><a href="#cb17-294"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span>           <span class="co"># Agrupar por año</span></span>
-<span id="cb17-295"><a href="#cb17-295"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Sumar la producción por año</span></span>
-<span id="cb17-296"><a href="#cb17-296"></a></span>
-<span id="cb17-297"><a href="#cb17-297"></a><span class="co"># Crear el gráfico de barras</span></span>
-<span id="cb17-298"><a href="#cb17-298"></a><span class="fu">ggplot</span>(data_spain, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
-<span id="cb17-299"><a href="#cb17-299"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-300"><a href="#cb17-300"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la Producción Agrícola en Francia&quot;</span>,</span>
-<span id="cb17-301"><a href="#cb17-301"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
-<span id="cb17-302"><a href="#cb17-302"></a>       <span class="at">y =</span> <span class="st">&quot;Producción Agrícola (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-303"><a href="#cb17-303"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-304"><a href="#cb17-304"></a><span class="in">```</span></span>
-<span id="cb17-305"><a href="#cb17-305"></a></span>
-<span id="cb17-306"><a href="#cb17-306"></a></span>
-<span id="cb17-307"><a href="#cb17-307"></a>Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa</span>
-<span id="cb17-310"><a href="#cb17-310"></a><span class="in">```{r}</span></span>
-<span id="cb17-311"><a href="#cb17-311"></a><span class="co"># Filtrar datos para el año 2023</span></span>
-<span id="cb17-312"><a href="#cb17-312"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-313"><a href="#cb17-313"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>)</span>
+<span id="cb17-220"><a href="#cb17-220"></a><span class="co"># Calcular el total general</span></span>
+<span id="cb17-221"><a href="#cb17-221"></a>total_titulares <span class="ot">&lt;-</span> <span class="fu">sum</span>(proporciones_titulares<span class="sc">$</span>Total_Clase, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-222"><a href="#cb17-222"></a></span>
+<span id="cb17-223"><a href="#cb17-223"></a><span class="co"># Añadir la proporción a cada categoría</span></span>
+<span id="cb17-224"><a href="#cb17-224"></a>proporciones_titulares <span class="ot">&lt;-</span> proporciones_titulares <span class="sc">%&gt;%</span></span>
+<span id="cb17-225"><a href="#cb17-225"></a>  <span class="fu">mutate</span>(Proporción <span class="ot">=</span> (Total_Clase <span class="sc">/</span> total_titulares) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb17-226"><a href="#cb17-226"></a></span>
+<span id="cb17-227"><a href="#cb17-227"></a></span>
+<span id="cb17-228"><a href="#cb17-228"></a></span>
+<span id="cb17-229"><a href="#cb17-229"></a><span class="co"># Crear un gráfico circular para visualizar las proporciones</span></span>
+<span id="cb17-230"><a href="#cb17-230"></a><span class="fu">ggplot</span>(proporciones_titulares, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Proporción, <span class="at">fill =</span> <span class="st">`</span><span class="at">Clase de titular</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb17-231"><a href="#cb17-231"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span>       <span class="co"># Crear barras apiladas</span></span>
+<span id="cb17-232"><a href="#cb17-232"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span>                                      <span class="co"># Convertir a gráfico circular</span></span>
+<span id="cb17-233"><a href="#cb17-233"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Proporción de Titulares y Titulares jefes de explotación&quot;</span>,</span>
+<span id="cb17-234"><a href="#cb17-234"></a>       <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-235"><a href="#cb17-235"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>                                                  <span class="co"># Eliminar ejes innecesarios</span></span>
+<span id="cb17-236"><a href="#cb17-236"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>) <span class="sc">+</span>                           <span class="co"># Paleta de colores</span></span>
+<span id="cb17-237"><a href="#cb17-237"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Proporción, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-238"><a href="#cb17-238"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)     <span class="co"># Añadir etiquetas porcentuales</span></span>
+<span id="cb17-239"><a href="#cb17-239"></a></span>
+<span id="cb17-240"><a href="#cb17-240"></a><span class="in">```</span></span>
+<span id="cb17-241"><a href="#cb17-241"></a></span>
+<span id="cb17-242"><a href="#cb17-242"></a></span>
+<span id="cb17-243"><a href="#cb17-243"></a></span>
+<span id="cb17-244"><a href="#cb17-244"></a>Ahora vamos a trabajar con los segundos datos que hemos importado.</span>
+<span id="cb17-245"><a href="#cb17-245"></a>Haremos primero un gáfico de barras con la producción por países el año 2023</span>
+<span id="cb17-246"><a href="#cb17-246"></a></span>
+<span id="cb17-249"><a href="#cb17-249"></a><span class="in">```{r}</span></span>
+<span id="cb17-250"><a href="#cb17-250"></a><span class="co"># Filtrar datos para el año 2023</span></span>
+<span id="cb17-251"><a href="#cb17-251"></a><span class="co"># Filtrar datos para el año 2023</span></span>
+<span id="cb17-252"><a href="#cb17-252"></a>data_filtered <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-253"><a href="#cb17-253"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Eliminar filas donde &#39;Geo&#39; tiene un espacio</span></span>
+<span id="cb17-254"><a href="#cb17-254"></a>data_2023 <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb17-255"><a href="#cb17-255"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="fu">max</span>(TIME_PERIOD, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>                <span class="co"># Filtrar datos para 2023</span></span>
+<span id="cb17-256"><a href="#cb17-256"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span>                       <span class="co"># Agrupar por países</span></span>
+<span id="cb17-257"><a href="#cb17-257"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co"># Sumar producción</span></span>
+<span id="cb17-258"><a href="#cb17-258"></a>  <span class="fu">arrange</span>(Total_Production)               <span class="co"># Ordenar por producción</span></span>
+<span id="cb17-259"><a href="#cb17-259"></a></span>
+<span id="cb17-260"><a href="#cb17-260"></a><span class="co"># Verificar los datos procesados</span></span>
+<span id="cb17-261"><a href="#cb17-261"></a><span class="fu">print</span>(data_2023)</span>
+<span id="cb17-262"><a href="#cb17-262"></a></span>
+<span id="cb17-263"><a href="#cb17-263"></a><span class="co"># Crear el gráfico de barras horizontal</span></span>
+<span id="cb17-264"><a href="#cb17-264"></a><span class="fu">ggplot</span>(data_2023, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(geo, Total_Production), <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
+<span id="cb17-265"><a href="#cb17-265"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-266"><a href="#cb17-266"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>                          <span class="co"># Invertir el gráfico para barras horizontales</span></span>
+<span id="cb17-267"><a href="#cb17-267"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Producción Agrícola por País (2023)&quot;</span>,</span>
+<span id="cb17-268"><a href="#cb17-268"></a>       <span class="at">x =</span> <span class="st">&quot;País&quot;</span>,</span>
+<span id="cb17-269"><a href="#cb17-269"></a>       <span class="at">y =</span> <span class="st">&quot;Producción (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-270"><a href="#cb17-270"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-271"><a href="#cb17-271"></a><span class="in">```</span></span>
+<span id="cb17-272"><a href="#cb17-272"></a></span>
+<span id="cb17-273"><a href="#cb17-273"></a></span>
+<span id="cb17-274"><a href="#cb17-274"></a>Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años</span>
+<span id="cb17-275"><a href="#cb17-275"></a></span>
+<span id="cb17-278"><a href="#cb17-278"></a><span class="in">```{r}</span></span>
+<span id="cb17-279"><a href="#cb17-279"></a><span class="co"># Filtrar los datos para Francia</span></span>
+<span id="cb17-280"><a href="#cb17-280"></a>data_france <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-281"><a href="#cb17-281"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;France&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para Francia</span></span>
+<span id="cb17-282"><a href="#cb17-282"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span>           <span class="co"># Agrupar por año</span></span>
+<span id="cb17-283"><a href="#cb17-283"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Sumar la producción por año</span></span>
+<span id="cb17-284"><a href="#cb17-284"></a></span>
+<span id="cb17-285"><a href="#cb17-285"></a><span class="co"># Crear el gráfico de barras</span></span>
+<span id="cb17-286"><a href="#cb17-286"></a><span class="fu">ggplot</span>(data_france, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
+<span id="cb17-287"><a href="#cb17-287"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-288"><a href="#cb17-288"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la Producción Agrícola en Francia&quot;</span>,</span>
+<span id="cb17-289"><a href="#cb17-289"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
+<span id="cb17-290"><a href="#cb17-290"></a>       <span class="at">y =</span> <span class="st">&quot;Producción Agrícola (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-291"><a href="#cb17-291"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-292"><a href="#cb17-292"></a><span class="in">```</span></span>
+<span id="cb17-293"><a href="#cb17-293"></a></span>
+<span id="cb17-294"><a href="#cb17-294"></a>Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años</span>
+<span id="cb17-295"><a href="#cb17-295"></a></span>
+<span id="cb17-298"><a href="#cb17-298"></a><span class="in">```{r}</span></span>
+<span id="cb17-299"><a href="#cb17-299"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-300"><a href="#cb17-300"></a>data_spain <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-301"><a href="#cb17-301"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filtrar solo para España</span></span>
+<span id="cb17-302"><a href="#cb17-302"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span>           <span class="co"># Agrupar por año</span></span>
+<span id="cb17-303"><a href="#cb17-303"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Sumar la producción por año</span></span>
+<span id="cb17-304"><a href="#cb17-304"></a></span>
+<span id="cb17-305"><a href="#cb17-305"></a><span class="co"># Crear el gráfico de barras</span></span>
+<span id="cb17-306"><a href="#cb17-306"></a><span class="fu">ggplot</span>(data_spain, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> Total_Production)) <span class="sc">+</span></span>
+<span id="cb17-307"><a href="#cb17-307"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-308"><a href="#cb17-308"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la Producción Agrícola en Francia&quot;</span>,</span>
+<span id="cb17-309"><a href="#cb17-309"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
+<span id="cb17-310"><a href="#cb17-310"></a>       <span class="at">y =</span> <span class="st">&quot;Producción Agrícola (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-311"><a href="#cb17-311"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-312"><a href="#cb17-312"></a><span class="in">```</span></span>
+<span id="cb17-313"><a href="#cb17-313"></a></span>
 <span id="cb17-314"><a href="#cb17-314"></a></span>
-<span id="cb17-315"><a href="#cb17-315"></a><span class="co"># Calcular la producción agrícola de España y del resto de Europa</span></span>
-<span id="cb17-316"><a href="#cb17-316"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
-<span id="cb17-317"><a href="#cb17-317"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;España&quot;</span>, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-318"><a href="#cb17-318"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
-<span id="cb17-319"><a href="#cb17-319"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-320"><a href="#cb17-320"></a></span>
-<span id="cb17-321"><a href="#cb17-321"></a><span class="co"># Crear el gráfico circular</span></span>
-<span id="cb17-322"><a href="#cb17-322"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
-<span id="cb17-323"><a href="#cb17-323"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-324"><a href="#cb17-324"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-325"><a href="#cb17-325"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;España&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;Resto de Europa&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb17-326"><a href="#cb17-326"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Proporción de la Producción Agrícola Española vs Resto de Europa (2023)&quot;</span>,</span>
-<span id="cb17-327"><a href="#cb17-327"></a>       <span class="at">fill =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-328"><a href="#cb17-328"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb17-329"><a href="#cb17-329"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-330"><a href="#cb17-330"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb17-331"><a href="#cb17-331"></a><span class="in">```</span></span>
-<span id="cb17-332"><a href="#cb17-332"></a></span>
-<span id="cb17-333"><a href="#cb17-333"></a>La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción</span>
-<span id="cb17-336"><a href="#cb17-336"></a><span class="in">```{r}</span></span>
-<span id="cb17-337"><a href="#cb17-337"></a><span class="co"># Filtrar datos para el año 2023 y excluir agrupaciones no deseadas</span></span>
-<span id="cb17-338"><a href="#cb17-338"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-339"><a href="#cb17-339"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-340"><a href="#cb17-340"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;European|Euro area&quot;</span>, geo))  <span class="co"># Excluir filas con &quot;European&quot; o &quot;Euro area&quot;</span></span>
+<span id="cb17-315"><a href="#cb17-315"></a>Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa</span>
+<span id="cb17-316"><a href="#cb17-316"></a></span>
+<span id="cb17-319"><a href="#cb17-319"></a><span class="in">```{r}</span></span>
+<span id="cb17-320"><a href="#cb17-320"></a><span class="co"># Filtrar datos para el año 2023</span></span>
+<span id="cb17-321"><a href="#cb17-321"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-322"><a href="#cb17-322"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>)</span>
+<span id="cb17-323"><a href="#cb17-323"></a></span>
+<span id="cb17-324"><a href="#cb17-324"></a><span class="co"># Calcular la producción agrícola de España y del resto de Europa</span></span>
+<span id="cb17-325"><a href="#cb17-325"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
+<span id="cb17-326"><a href="#cb17-326"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;España&quot;</span>, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-327"><a href="#cb17-327"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
+<span id="cb17-328"><a href="#cb17-328"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-329"><a href="#cb17-329"></a></span>
+<span id="cb17-330"><a href="#cb17-330"></a><span class="co"># Crear el gráfico circular</span></span>
+<span id="cb17-331"><a href="#cb17-331"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb17-332"><a href="#cb17-332"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-333"><a href="#cb17-333"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-334"><a href="#cb17-334"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;España&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;Resto de Europa&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb17-335"><a href="#cb17-335"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Proporción de la Producción Agrícola Española vs Resto de Europa (2023)&quot;</span>,</span>
+<span id="cb17-336"><a href="#cb17-336"></a>       <span class="at">fill =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-337"><a href="#cb17-337"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb17-338"><a href="#cb17-338"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-339"><a href="#cb17-339"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb17-340"><a href="#cb17-340"></a><span class="in">```</span></span>
 <span id="cb17-341"><a href="#cb17-341"></a></span>
-<span id="cb17-342"><a href="#cb17-342"></a><span class="co"># Calcular la producción total por país y seleccionar los 3 principales</span></span>
-<span id="cb17-343"><a href="#cb17-343"></a>top_countries <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
-<span id="cb17-344"><a href="#cb17-344"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
-<span id="cb17-345"><a href="#cb17-345"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-346"><a href="#cb17-346"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Production)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-347"><a href="#cb17-347"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">3</span>)  <span class="co"># Seleccionar los 3 países con mayor producción</span></span>
-<span id="cb17-348"><a href="#cb17-348"></a></span>
-<span id="cb17-349"><a href="#cb17-349"></a><span class="co"># Identificar los tres principales y el resto de Europa</span></span>
-<span id="cb17-350"><a href="#cb17-350"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
-<span id="cb17-351"><a href="#cb17-351"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
-<span id="cb17-352"><a href="#cb17-352"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-353"><a href="#cb17-353"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">%in%</span> top_countries<span class="sc">$</span>geo, geo, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-354"><a href="#cb17-354"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
-<span id="cb17-355"><a href="#cb17-355"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(Total_Production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-356"><a href="#cb17-356"></a></span>
-<span id="cb17-357"><a href="#cb17-357"></a><span class="co"># Validar los datos finales antes del gráfico</span></span>
-<span id="cb17-358"><a href="#cb17-358"></a><span class="fu">print</span>(<span class="st">&quot;Summary data for the chart:&quot;</span>)</span>
-<span id="cb17-359"><a href="#cb17-359"></a><span class="fu">print</span>(summary_data)</span>
-<span id="cb17-360"><a href="#cb17-360"></a></span>
-<span id="cb17-361"><a href="#cb17-361"></a><span class="co"># Crear el gráfico circular</span></span>
-<span id="cb17-362"><a href="#cb17-362"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
-<span id="cb17-363"><a href="#cb17-363"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-364"><a href="#cb17-364"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-365"><a href="#cb17-365"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-366"><a href="#cb17-366"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Comparación de los 3 países con mayor producción agrícola vs Resto de Europa (2023)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-367"><a href="#cb17-367"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb17-368"><a href="#cb17-368"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(Category, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-369"><a href="#cb17-369"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">4</span>)</span>
-<span id="cb17-370"><a href="#cb17-370"></a><span class="in">```</span></span>
-<span id="cb17-371"><a href="#cb17-371"></a></span>
-<span id="cb17-372"><a href="#cb17-372"></a>Como vemos, los tres países con mayor producción agraria suman casi el 45% de la producción total europea, veamos qué pasa si añadimos España que era el cuarto:</span>
-<span id="cb17-375"><a href="#cb17-375"></a><span class="in">```{r}</span></span>
-<span id="cb17-376"><a href="#cb17-376"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
-<span id="cb17-377"><a href="#cb17-377"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-378"><a href="#cb17-378"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;European|Euro area&quot;</span>, geo))  <span class="co"># Excluir filas con &quot;European&quot; o &quot;Euro area&quot;</span></span>
-<span id="cb17-379"><a href="#cb17-379"></a></span>
-<span id="cb17-380"><a href="#cb17-380"></a><span class="co"># Calcular la producción total por país y seleccionar los 3 principales</span></span>
-<span id="cb17-381"><a href="#cb17-381"></a>top_countries <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
-<span id="cb17-382"><a href="#cb17-382"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
-<span id="cb17-383"><a href="#cb17-383"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-384"><a href="#cb17-384"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Production)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-385"><a href="#cb17-385"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">4</span>)  <span class="co"># Seleccionar los 4 países con mayor producción</span></span>
-<span id="cb17-386"><a href="#cb17-386"></a></span>
-<span id="cb17-387"><a href="#cb17-387"></a><span class="co"># Identificar los tres principales y el resto de Europa</span></span>
-<span id="cb17-388"><a href="#cb17-388"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
-<span id="cb17-389"><a href="#cb17-389"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
-<span id="cb17-390"><a href="#cb17-390"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-391"><a href="#cb17-391"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">%in%</span> top_countries<span class="sc">$</span>geo, geo, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-392"><a href="#cb17-392"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
-<span id="cb17-393"><a href="#cb17-393"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(Total_Production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-394"><a href="#cb17-394"></a></span>
-<span id="cb17-395"><a href="#cb17-395"></a></span>
-<span id="cb17-396"><a href="#cb17-396"></a><span class="co"># Crear el gráfico circular</span></span>
-<span id="cb17-397"><a href="#cb17-397"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
-<span id="cb17-398"><a href="#cb17-398"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-399"><a href="#cb17-399"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-400"><a href="#cb17-400"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-401"><a href="#cb17-401"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Comparación de los 3 países con mayor producción agrícola vs Resto de Europa (2023)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-402"><a href="#cb17-402"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb17-403"><a href="#cb17-403"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(Category, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
-<span id="cb17-404"><a href="#cb17-404"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">4</span>)</span>
-<span id="cb17-405"><a href="#cb17-405"></a><span class="in">```</span></span>
-<span id="cb17-406"><a href="#cb17-406"></a>Comparativa por países</span>
-<span id="cb17-409"><a href="#cb17-409"></a><span class="in">```{r}</span></span>
-<span id="cb17-410"><a href="#cb17-410"></a><span class="co"># Filtrar datos para eliminar países con más de una palabra en el nombre</span></span>
-<span id="cb17-411"><a href="#cb17-411"></a>data_filtered_cleaned <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb17-412"><a href="#cb17-412"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Excluir países con más de una palabra en &#39;geo&#39;</span></span>
-<span id="cb17-413"><a href="#cb17-413"></a></span>
-<span id="cb17-414"><a href="#cb17-414"></a><span class="co"># Crear el gráfico de barras</span></span>
-<span id="cb17-415"><a href="#cb17-415"></a><span class="fu">ggplot</span>(data_filtered_cleaned, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">fill =</span> geo)) <span class="sc">+</span></span>
-<span id="cb17-416"><a href="#cb17-416"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-417"><a href="#cb17-417"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Contribución de cada país a la producción total por año&quot;</span>,</span>
-<span id="cb17-418"><a href="#cb17-418"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Producción (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-419"><a href="#cb17-419"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span>  <span class="co"># Formatear el eje Y</span></span>
-<span id="cb17-420"><a href="#cb17-420"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb17-421"><a href="#cb17-421"></a>  <span class="fu">theme</span>(</span>
-<span id="cb17-422"><a href="#cb17-422"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),  <span class="co"># Rotar etiquetas de años para mayor claridad</span></span>
-<span id="cb17-423"><a href="#cb17-423"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)</span>
-<span id="cb17-424"><a href="#cb17-424"></a>  )</span>
-<span id="cb17-425"><a href="#cb17-425"></a><span class="in">```</span></span>
-<span id="cb17-426"><a href="#cb17-426"></a></span>
-<span id="cb17-427"><a href="#cb17-427"></a>Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices</span>
-<span id="cb17-430"><a href="#cb17-430"></a><span class="in">```{r}</span></span>
-<span id="cb17-431"><a href="#cb17-431"></a><span class="co">#Vamos a arreglarlos un poco para no tener que estar haciéndolo en cada apartado:</span></span>
-<span id="cb17-432"><a href="#cb17-432"></a><span class="co"># Filtrar el dataset eliminando países con nombres de más de una palabra</span></span>
-<span id="cb17-433"><a href="#cb17-433"></a>data_cleaned <span class="ot">&lt;-</span> datos_precios <span class="sc">%&gt;%</span></span>
-<span id="cb17-434"><a href="#cb17-434"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Excluir filas donde &#39;geo&#39; contiene un espacio</span></span>
-<span id="cb17-435"><a href="#cb17-435"></a></span>
-<span id="cb17-436"><a href="#cb17-436"></a><span class="co">#Ahora trabajaremos con el dataset data_cleaned</span></span>
-<span id="cb17-437"><a href="#cb17-437"></a><span class="co">#Cogeremos el maíz como el principal cereal representante de la actividad agrícola, para medir la evolución de precios</span></span>
-<span id="cb17-438"><a href="#cb17-438"></a></span>
-<span id="cb17-439"><a href="#cb17-439"></a><span class="co"># Filtrar para un producto específico</span></span>
-<span id="cb17-440"><a href="#cb17-440"></a>data_germany <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
-<span id="cb17-441"><a href="#cb17-441"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Germany&quot;</span>)</span>
-<span id="cb17-442"><a href="#cb17-442"></a>data_filtered <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
-<span id="cb17-443"><a href="#cb17-443"></a>  <span class="fu">filter</span>(prod_veg <span class="sc">==</span> <span class="st">&quot;Soft wheat - prices per 100 kg&quot;</span>)</span>
-<span id="cb17-444"><a href="#cb17-444"></a></span>
-<span id="cb17-445"><a href="#cb17-445"></a><span class="fu">ggplot</span>(data_germany, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">color =</span> geo)) <span class="sc">+</span></span>
-<span id="cb17-446"><a href="#cb17-446"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb17-447"><a href="#cb17-447"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Tendencia del Precio de Maíz en Alemania&quot;</span>,</span>
-<span id="cb17-448"><a href="#cb17-448"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Precio por 100kgs (Euros/Moneda local)&quot;</span>,</span>
-<span id="cb17-449"><a href="#cb17-449"></a>       <span class="at">color =</span> <span class="st">&quot;País&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-450"><a href="#cb17-450"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-451"><a href="#cb17-451"></a><span class="in">```</span></span>
-<span id="cb17-452"><a href="#cb17-452"></a></span>
-<span id="cb17-453"><a href="#cb17-453"></a>Veamos ahora los precios en España:</span>
-<span id="cb17-456"><a href="#cb17-456"></a><span class="in">```{r}</span></span>
-<span id="cb17-457"><a href="#cb17-457"></a>data_spain <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
-<span id="cb17-458"><a href="#cb17-458"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>)</span>
-<span id="cb17-459"><a href="#cb17-459"></a>data_filtered <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
-<span id="cb17-460"><a href="#cb17-460"></a>  <span class="fu">filter</span>(prod_veg <span class="sc">==</span> <span class="st">&quot;Soft wheat - prices per 100 kg&quot;</span>)</span>
-<span id="cb17-461"><a href="#cb17-461"></a></span>
-<span id="cb17-462"><a href="#cb17-462"></a><span class="fu">ggplot</span>(data_spain, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">color =</span> geo)) <span class="sc">+</span></span>
-<span id="cb17-463"><a href="#cb17-463"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb17-464"><a href="#cb17-464"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Tendencia del Precio de Maíz en Alemania&quot;</span>,</span>
-<span id="cb17-465"><a href="#cb17-465"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Precio por 100kgs (Euros/Moneda local)&quot;</span>,</span>
-<span id="cb17-466"><a href="#cb17-466"></a>       <span class="at">color =</span> <span class="st">&quot;País&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-467"><a href="#cb17-467"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-468"><a href="#cb17-468"></a><span class="in">```</span></span>
+<span id="cb17-342"><a href="#cb17-342"></a>La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción</span>
+<span id="cb17-343"><a href="#cb17-343"></a></span>
+<span id="cb17-346"><a href="#cb17-346"></a><span class="in">```{r}</span></span>
+<span id="cb17-347"><a href="#cb17-347"></a><span class="co"># Filtrar datos para el año 2023 y excluir agrupaciones no deseadas</span></span>
+<span id="cb17-348"><a href="#cb17-348"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-349"><a href="#cb17-349"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-350"><a href="#cb17-350"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;European|Euro area&quot;</span>, geo))  <span class="co"># Excluir filas con &quot;European&quot; o &quot;Euro area&quot;</span></span>
+<span id="cb17-351"><a href="#cb17-351"></a></span>
+<span id="cb17-352"><a href="#cb17-352"></a><span class="co"># Calcular la producción total por país y seleccionar los 3 principales</span></span>
+<span id="cb17-353"><a href="#cb17-353"></a>top_countries <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
+<span id="cb17-354"><a href="#cb17-354"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
+<span id="cb17-355"><a href="#cb17-355"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-356"><a href="#cb17-356"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Production)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-357"><a href="#cb17-357"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">3</span>)  <span class="co"># Seleccionar los 3 países con mayor producción</span></span>
+<span id="cb17-358"><a href="#cb17-358"></a></span>
+<span id="cb17-359"><a href="#cb17-359"></a><span class="co"># Identificar los tres principales y el resto de Europa</span></span>
+<span id="cb17-360"><a href="#cb17-360"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
+<span id="cb17-361"><a href="#cb17-361"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
+<span id="cb17-362"><a href="#cb17-362"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-363"><a href="#cb17-363"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">%in%</span> top_countries<span class="sc">$</span>geo, geo, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-364"><a href="#cb17-364"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
+<span id="cb17-365"><a href="#cb17-365"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(Total_Production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-366"><a href="#cb17-366"></a></span>
+<span id="cb17-367"><a href="#cb17-367"></a><span class="co"># Validar los datos finales antes del gráfico</span></span>
+<span id="cb17-368"><a href="#cb17-368"></a><span class="fu">print</span>(<span class="st">&quot;Summary data for the chart:&quot;</span>)</span>
+<span id="cb17-369"><a href="#cb17-369"></a><span class="fu">print</span>(summary_data)</span>
+<span id="cb17-370"><a href="#cb17-370"></a></span>
+<span id="cb17-371"><a href="#cb17-371"></a><span class="co"># Crear el gráfico circular</span></span>
+<span id="cb17-372"><a href="#cb17-372"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb17-373"><a href="#cb17-373"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-374"><a href="#cb17-374"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-375"><a href="#cb17-375"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-376"><a href="#cb17-376"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Comparación de los 3 países con mayor producción agrícola vs Resto de Europa (2023)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-377"><a href="#cb17-377"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb17-378"><a href="#cb17-378"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(Category, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-379"><a href="#cb17-379"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">4</span>)</span>
+<span id="cb17-380"><a href="#cb17-380"></a><span class="in">```</span></span>
+<span id="cb17-381"><a href="#cb17-381"></a></span>
+<span id="cb17-382"><a href="#cb17-382"></a>Como vemos, los tres países con mayor producción agraria suman casi el 45% de la producción total europea, veamos qué pasa si añadimos España que era el cuarto:</span>
+<span id="cb17-383"><a href="#cb17-383"></a></span>
+<span id="cb17-386"><a href="#cb17-386"></a><span class="in">```{r}</span></span>
+<span id="cb17-387"><a href="#cb17-387"></a>data_2023 <span class="ot">&lt;-</span> datos_prod <span class="sc">%&gt;%</span></span>
+<span id="cb17-388"><a href="#cb17-388"></a>  <span class="fu">filter</span>(TIME_PERIOD <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-389"><a href="#cb17-389"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;European|Euro area&quot;</span>, geo))  <span class="co"># Excluir filas con &quot;European&quot; o &quot;Euro area&quot;</span></span>
+<span id="cb17-390"><a href="#cb17-390"></a></span>
+<span id="cb17-391"><a href="#cb17-391"></a><span class="co"># Calcular la producción total por país y seleccionar los 3 principales</span></span>
+<span id="cb17-392"><a href="#cb17-392"></a>top_countries <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
+<span id="cb17-393"><a href="#cb17-393"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
+<span id="cb17-394"><a href="#cb17-394"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-395"><a href="#cb17-395"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Production)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-396"><a href="#cb17-396"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">4</span>)  <span class="co"># Seleccionar los 4 países con mayor producción</span></span>
+<span id="cb17-397"><a href="#cb17-397"></a></span>
+<span id="cb17-398"><a href="#cb17-398"></a><span class="co"># Identificar los tres principales y el resto de Europa</span></span>
+<span id="cb17-399"><a href="#cb17-399"></a>summary_data <span class="ot">&lt;-</span> data_2023 <span class="sc">%&gt;%</span></span>
+<span id="cb17-400"><a href="#cb17-400"></a>  <span class="fu">group_by</span>(geo) <span class="sc">%&gt;%</span></span>
+<span id="cb17-401"><a href="#cb17-401"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-402"><a href="#cb17-402"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">ifelse</span>(geo <span class="sc">%in%</span> top_countries<span class="sc">$</span>geo, geo, <span class="st">&quot;Resto de Europa&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-403"><a href="#cb17-403"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
+<span id="cb17-404"><a href="#cb17-404"></a>  <span class="fu">summarise</span>(<span class="at">Total_Production =</span> <span class="fu">sum</span>(Total_Production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-405"><a href="#cb17-405"></a></span>
+<span id="cb17-406"><a href="#cb17-406"></a></span>
+<span id="cb17-407"><a href="#cb17-407"></a><span class="co"># Crear el gráfico circular</span></span>
+<span id="cb17-408"><a href="#cb17-408"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> Total_Production, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb17-409"><a href="#cb17-409"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-410"><a href="#cb17-410"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-411"><a href="#cb17-411"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Categoría&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-412"><a href="#cb17-412"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Comparación de los 3 países con mayor producción agrícola vs Resto de Europa (2023)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-413"><a href="#cb17-413"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb17-414"><a href="#cb17-414"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(Category, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(Total_Production <span class="sc">/</span> <span class="fu">sum</span>(Total_Production) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)),</span>
+<span id="cb17-415"><a href="#cb17-415"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">4</span>)</span>
+<span id="cb17-416"><a href="#cb17-416"></a><span class="in">```</span></span>
+<span id="cb17-417"><a href="#cb17-417"></a></span>
+<span id="cb17-418"><a href="#cb17-418"></a></span>
+<span id="cb17-419"><a href="#cb17-419"></a>Comparativa por países</span>
+<span id="cb17-420"><a href="#cb17-420"></a></span>
+<span id="cb17-423"><a href="#cb17-423"></a><span class="in">```{r}</span></span>
+<span id="cb17-424"><a href="#cb17-424"></a><span class="co"># Filtrar datos para eliminar países con más de una palabra en el nombre</span></span>
+<span id="cb17-425"><a href="#cb17-425"></a>data_filtered_cleaned <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb17-426"><a href="#cb17-426"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Excluir países con más de una palabra en &#39;geo&#39;</span></span>
+<span id="cb17-427"><a href="#cb17-427"></a></span>
+<span id="cb17-428"><a href="#cb17-428"></a><span class="co"># Crear el gráfico de barras</span></span>
+<span id="cb17-429"><a href="#cb17-429"></a><span class="fu">ggplot</span>(data_filtered_cleaned, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">fill =</span> geo)) <span class="sc">+</span></span>
+<span id="cb17-430"><a href="#cb17-430"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-431"><a href="#cb17-431"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Contribución de cada país a la producción total por año&quot;</span>,</span>
+<span id="cb17-432"><a href="#cb17-432"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Producción (Millones de Euros)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-433"><a href="#cb17-433"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span>  <span class="co"># Formatear el eje Y</span></span>
+<span id="cb17-434"><a href="#cb17-434"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-435"><a href="#cb17-435"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-436"><a href="#cb17-436"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),  <span class="co"># Rotar etiquetas de años para mayor claridad</span></span>
+<span id="cb17-437"><a href="#cb17-437"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)</span>
+<span id="cb17-438"><a href="#cb17-438"></a>  )</span>
+<span id="cb17-439"><a href="#cb17-439"></a><span class="in">```</span></span>
+<span id="cb17-440"><a href="#cb17-440"></a></span>
+<span id="cb17-441"><a href="#cb17-441"></a>Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices</span>
+<span id="cb17-442"><a href="#cb17-442"></a></span>
+<span id="cb17-445"><a href="#cb17-445"></a><span class="in">```{r}</span></span>
+<span id="cb17-446"><a href="#cb17-446"></a><span class="co">#Vamos a arreglarlos un poco para no tener que estar haciéndolo en cada apartado:</span></span>
+<span id="cb17-447"><a href="#cb17-447"></a><span class="co"># Filtrar el dataset eliminando países con nombres de más de una palabra</span></span>
+<span id="cb17-448"><a href="#cb17-448"></a>data_cleaned <span class="ot">&lt;-</span> datos_precios <span class="sc">%&gt;%</span></span>
+<span id="cb17-449"><a href="#cb17-449"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot; &quot;</span>, geo))  <span class="co"># Excluir filas donde &#39;geo&#39; contiene un espacio</span></span>
+<span id="cb17-450"><a href="#cb17-450"></a></span>
+<span id="cb17-451"><a href="#cb17-451"></a><span class="co">#Ahora trabajaremos con el dataset data_cleaned</span></span>
+<span id="cb17-452"><a href="#cb17-452"></a><span class="co">#Cogeremos el maíz como el principal cereal representante de la actividad agrícola, para medir la evolución de precios</span></span>
+<span id="cb17-453"><a href="#cb17-453"></a></span>
+<span id="cb17-454"><a href="#cb17-454"></a><span class="co"># Filtrar para un producto específico</span></span>
+<span id="cb17-455"><a href="#cb17-455"></a>data_germany <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb17-456"><a href="#cb17-456"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Germany&quot;</span>)</span>
+<span id="cb17-457"><a href="#cb17-457"></a>data_filtered <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb17-458"><a href="#cb17-458"></a>  <span class="fu">filter</span>(prod_veg <span class="sc">==</span> <span class="st">&quot;Soft wheat - prices per 100 kg&quot;</span>)</span>
+<span id="cb17-459"><a href="#cb17-459"></a></span>
+<span id="cb17-460"><a href="#cb17-460"></a><span class="fu">ggplot</span>(data_germany, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">color =</span> geo)) <span class="sc">+</span></span>
+<span id="cb17-461"><a href="#cb17-461"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-462"><a href="#cb17-462"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Tendencia del Precio de Maíz en Alemania&quot;</span>,</span>
+<span id="cb17-463"><a href="#cb17-463"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Precio por 100kgs (Euros/Moneda local)&quot;</span>,</span>
+<span id="cb17-464"><a href="#cb17-464"></a>       <span class="at">color =</span> <span class="st">&quot;País&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-465"><a href="#cb17-465"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-466"><a href="#cb17-466"></a><span class="in">```</span></span>
+<span id="cb17-467"><a href="#cb17-467"></a></span>
+<span id="cb17-468"><a href="#cb17-468"></a>Veamos ahora los precios en España:</span>
 <span id="cb17-469"><a href="#cb17-469"></a></span>
-<span id="cb17-470"><a href="#cb17-470"></a>Ahora haremos la media de todos los países:</span>
-<span id="cb17-473"><a href="#cb17-473"></a><span class="in">```{r}</span></span>
-<span id="cb17-474"><a href="#cb17-474"></a><span class="co"># Calcular la media global por año</span></span>
-<span id="cb17-475"><a href="#cb17-475"></a>global_mean <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
-<span id="cb17-476"><a href="#cb17-476"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span></span>
-<span id="cb17-477"><a href="#cb17-477"></a>  <span class="fu">summarise</span>(<span class="at">Global_Mean =</span> <span class="fu">mean</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Media de producción global</span></span>
-<span id="cb17-478"><a href="#cb17-478"></a></span>
-<span id="cb17-479"><a href="#cb17-479"></a><span class="co"># Filtrar los datos de Alemania</span></span>
-<span id="cb17-480"><a href="#cb17-480"></a>data_spain <span class="ot">&lt;-</span> data_spain <span class="sc">%&gt;%</span></span>
-<span id="cb17-481"><a href="#cb17-481"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-482"><a href="#cb17-482"></a>  <span class="fu">select</span>(TIME_PERIOD, OBS_VALUE) <span class="sc">%&gt;%</span></span>
-<span id="cb17-483"><a href="#cb17-483"></a>  <span class="fu">rename</span>(<span class="at">Spain =</span> OBS_VALUE)  <span class="co"># Renombrar la columna para distinguirla</span></span>
-<span id="cb17-484"><a href="#cb17-484"></a></span>
-<span id="cb17-485"><a href="#cb17-485"></a><span class="co"># Combinar las dos series</span></span>
-<span id="cb17-486"><a href="#cb17-486"></a>combined_data <span class="ot">&lt;-</span> global_mean <span class="sc">%&gt;%</span></span>
-<span id="cb17-487"><a href="#cb17-487"></a>  <span class="fu">left_join</span>(data_spain, <span class="at">by =</span> <span class="st">&quot;TIME_PERIOD&quot;</span>)</span>
-<span id="cb17-488"><a href="#cb17-488"></a></span>
-<span id="cb17-489"><a href="#cb17-489"></a><span class="co"># Crear el gráfico</span></span>
-<span id="cb17-490"><a href="#cb17-490"></a><span class="fu">ggplot</span>(combined_data, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD)) <span class="sc">+</span></span>
-<span id="cb17-491"><a href="#cb17-491"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Global_Mean, <span class="at">color =</span> <span class="st">&quot;Media Global&quot;</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb17-492"><a href="#cb17-492"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Spain, <span class="at">color =</span> <span class="st">&quot;España&quot;</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb17-493"><a href="#cb17-493"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Producción Agrícola: España vs Media Global&quot;</span>,</span>
-<span id="cb17-494"><a href="#cb17-494"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
-<span id="cb17-495"><a href="#cb17-495"></a>       <span class="at">y =</span> <span class="st">&quot;Producción (Euros/Moneda local)&quot;</span>,</span>
-<span id="cb17-496"><a href="#cb17-496"></a>       <span class="at">color =</span> <span class="st">&quot;Leyenda&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-497"><a href="#cb17-497"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb17-498"><a href="#cb17-498"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Media Global&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;España&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb17-499"><a href="#cb17-499"></a>  <span class="fu">theme</span>(</span>
-<span id="cb17-500"><a href="#cb17-500"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
-<span id="cb17-501"><a href="#cb17-501"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb17-502"><a href="#cb17-502"></a>  )</span>
-<span id="cb17-503"><a href="#cb17-503"></a><span class="in">```</span></span>
-<span id="cb17-504"><a href="#cb17-504"></a></span>
+<span id="cb17-472"><a href="#cb17-472"></a><span class="in">```{r}</span></span>
+<span id="cb17-473"><a href="#cb17-473"></a>data_spain <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb17-474"><a href="#cb17-474"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>)</span>
+<span id="cb17-475"><a href="#cb17-475"></a>data_filtered <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb17-476"><a href="#cb17-476"></a>  <span class="fu">filter</span>(prod_veg <span class="sc">==</span> <span class="st">&quot;Soft wheat - prices per 100 kg&quot;</span>)</span>
+<span id="cb17-477"><a href="#cb17-477"></a></span>
+<span id="cb17-478"><a href="#cb17-478"></a><span class="fu">ggplot</span>(data_spain, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD, <span class="at">y =</span> OBS_VALUE, <span class="at">color =</span> geo)) <span class="sc">+</span></span>
+<span id="cb17-479"><a href="#cb17-479"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-480"><a href="#cb17-480"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Tendencia del Precio de Maíz en Alemania&quot;</span>,</span>
+<span id="cb17-481"><a href="#cb17-481"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Precio por 100kgs (Euros/Moneda local)&quot;</span>,</span>
+<span id="cb17-482"><a href="#cb17-482"></a>       <span class="at">color =</span> <span class="st">&quot;País&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-483"><a href="#cb17-483"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-484"><a href="#cb17-484"></a><span class="in">```</span></span>
+<span id="cb17-485"><a href="#cb17-485"></a></span>
+<span id="cb17-486"><a href="#cb17-486"></a>Ahora haremos la media de todos los países:</span>
+<span id="cb17-487"><a href="#cb17-487"></a></span>
+<span id="cb17-490"><a href="#cb17-490"></a><span class="in">```{r}</span></span>
+<span id="cb17-491"><a href="#cb17-491"></a><span class="co"># Calcular la media global por año</span></span>
+<span id="cb17-492"><a href="#cb17-492"></a>global_mean <span class="ot">&lt;-</span> data_cleaned <span class="sc">%&gt;%</span></span>
+<span id="cb17-493"><a href="#cb17-493"></a>  <span class="fu">group_by</span>(TIME_PERIOD) <span class="sc">%&gt;%</span></span>
+<span id="cb17-494"><a href="#cb17-494"></a>  <span class="fu">summarise</span>(<span class="at">Global_Mean =</span> <span class="fu">mean</span>(OBS_VALUE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))  <span class="co"># Media de producción global</span></span>
+<span id="cb17-495"><a href="#cb17-495"></a></span>
+<span id="cb17-496"><a href="#cb17-496"></a><span class="co"># Filtrar los datos de Alemania</span></span>
+<span id="cb17-497"><a href="#cb17-497"></a>data_spain <span class="ot">&lt;-</span> data_spain <span class="sc">%&gt;%</span></span>
+<span id="cb17-498"><a href="#cb17-498"></a>  <span class="fu">filter</span>(geo <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-499"><a href="#cb17-499"></a>  <span class="fu">select</span>(TIME_PERIOD, OBS_VALUE) <span class="sc">%&gt;%</span></span>
+<span id="cb17-500"><a href="#cb17-500"></a>  <span class="fu">rename</span>(<span class="at">Spain =</span> OBS_VALUE)  <span class="co"># Renombrar la columna para distinguirla</span></span>
+<span id="cb17-501"><a href="#cb17-501"></a></span>
+<span id="cb17-502"><a href="#cb17-502"></a><span class="co"># Combinar las dos series</span></span>
+<span id="cb17-503"><a href="#cb17-503"></a>combined_data <span class="ot">&lt;-</span> global_mean <span class="sc">%&gt;%</span></span>
+<span id="cb17-504"><a href="#cb17-504"></a>  <span class="fu">left_join</span>(data_spain, <span class="at">by =</span> <span class="st">&quot;TIME_PERIOD&quot;</span>)</span>
 <span id="cb17-505"><a href="#cb17-505"></a></span>
-<span id="cb17-506"><a href="#cb17-506"></a>------------------------------------------------------------------------</span>
-<span id="cb17-507"><a href="#cb17-507"></a></span>
-<span id="cb17-508"><a href="#cb17-508"></a><span class="fu">## Conclusiones</span></span>
-<span id="cb17-509"><a href="#cb17-509"></a><span class="ss">1. </span>Demografía agrícola</span>
-<span id="cb17-510"><a href="#cb17-510"></a></span>
-<span id="cb17-511"><a href="#cb17-511"></a>Predomina la participación masculina en el sector agrícola, con una notable brecha de género.</span>
-<span id="cb17-512"><a href="#cb17-512"></a>Además se refleja un envejecimiento de la fuerza laboral.</span>
-<span id="cb17-513"><a href="#cb17-513"></a></span>
-<span id="cb17-514"><a href="#cb17-514"></a><span class="ss">2. </span>Producción agrícola</span>
-<span id="cb17-515"><a href="#cb17-515"></a></span>
-<span id="cb17-516"><a href="#cb17-516"></a>España contribuye con el 2.5% de la producción agrícola europea, superada por países como Francia y Alemania. Aquí todo y qye las explotaciones más grandes aportan mayor producción, las pequeñas son predominantes en número, los minifundios.</span>
-<span id="cb17-517"><a href="#cb17-517"></a></span>
-<span id="cb17-518"><a href="#cb17-518"></a><span class="ss">3. </span>Retos y oportunidades</span>
-<span id="cb17-519"><a href="#cb17-519"></a></span>
-<span id="cb17-520"><a href="#cb17-520"></a>La modernización y sostenibilidad son clave para enfrentar el cambio climático.</span>
-<span id="cb17-521"><a href="#cb17-521"></a>Es crucial atraer a jóvenes y mujeres al sector mediante formación e incentivos.</span>
+<span id="cb17-506"><a href="#cb17-506"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb17-507"><a href="#cb17-507"></a><span class="fu">ggplot</span>(combined_data, <span class="fu">aes</span>(<span class="at">x =</span> TIME_PERIOD)) <span class="sc">+</span></span>
+<span id="cb17-508"><a href="#cb17-508"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Global_Mean, <span class="at">color =</span> <span class="st">&quot;Media Global&quot;</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-509"><a href="#cb17-509"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Spain, <span class="at">color =</span> <span class="st">&quot;España&quot;</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-510"><a href="#cb17-510"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Producción Agrícola: España vs Media Global&quot;</span>,</span>
+<span id="cb17-511"><a href="#cb17-511"></a>       <span class="at">x =</span> <span class="st">&quot;Año&quot;</span>,</span>
+<span id="cb17-512"><a href="#cb17-512"></a>       <span class="at">y =</span> <span class="st">&quot;Producción (Euros/Moneda local)&quot;</span>,</span>
+<span id="cb17-513"><a href="#cb17-513"></a>       <span class="at">color =</span> <span class="st">&quot;Leyenda&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-514"><a href="#cb17-514"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-515"><a href="#cb17-515"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Media Global&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;España&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb17-516"><a href="#cb17-516"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-517"><a href="#cb17-517"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb17-518"><a href="#cb17-518"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb17-519"><a href="#cb17-519"></a>  )</span>
+<span id="cb17-520"><a href="#cb17-520"></a><span class="in">```</span></span>
+<span id="cb17-521"><a href="#cb17-521"></a></span>
 <span id="cb17-522"><a href="#cb17-522"></a></span>
 <span id="cb17-523"><a href="#cb17-523"></a>------------------------------------------------------------------------</span>
+<span id="cb17-524"><a href="#cb17-524"></a></span>
+<span id="cb17-525"><a href="#cb17-525"></a><span class="fu">## Conclusiones</span></span>
+<span id="cb17-526"><a href="#cb17-526"></a><span class="ss">1. </span>Demografía agrícola</span>
+<span id="cb17-527"><a href="#cb17-527"></a></span>
+<span id="cb17-528"><a href="#cb17-528"></a>Predomina la participación masculina en el sector agrícola, con una notable brecha de género.</span>
+<span id="cb17-529"><a href="#cb17-529"></a>Además se refleja un envejecimiento de la fuerza laboral.</span>
+<span id="cb17-530"><a href="#cb17-530"></a></span>
+<span id="cb17-531"><a href="#cb17-531"></a><span class="ss">2. </span>Producción agrícola</span>
+<span id="cb17-532"><a href="#cb17-532"></a></span>
+<span id="cb17-533"><a href="#cb17-533"></a>España contribuye con el 2.5% de la producción agrícola europea, superada por países como Francia y Alemania. Aquí todo y qye las explotaciones más grandes aportan mayor producción, las pequeñas son predominantes en número, los minifundios.</span>
+<span id="cb17-534"><a href="#cb17-534"></a></span>
+<span id="cb17-535"><a href="#cb17-535"></a><span class="ss">3. </span>Retos y oportunidades</span>
+<span id="cb17-536"><a href="#cb17-536"></a></span>
+<span id="cb17-537"><a href="#cb17-537"></a>La modernización y sostenibilidad son clave para enfrentar el cambio climático.</span>
+<span id="cb17-538"><a href="#cb17-538"></a>Es crucial atraer a jóvenes y mujeres al sector mediante formación e incentivos.</span>
+<span id="cb17-539"><a href="#cb17-539"></a></span>
+<span id="cb17-540"><a href="#cb17-540"></a>------------------------------------------------------------------------</span>
 </code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
