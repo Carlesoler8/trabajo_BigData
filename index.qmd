@@ -98,6 +98,7 @@ total_todas_edades <- sum(datos_filtrados$Total_Grupo, na.rm = TRUE)
 ## Resultados preliminares
 Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a traves de algunos graficos.
 Primero cargar paquetes que vayamos a necesitar para crear los graficos:
+
 ```{r}
 #install.packages("ggplot2")
 library(ggplot2)
@@ -105,6 +106,7 @@ library(ggplot2)
 ```
 
 Seguidamente arreglar un poco los datos para que quede todo correctamente:
+
 ```{r}
 # Recalcular los porcentajes
 datos_filtrados <- datos_filtrados %>%
@@ -112,6 +114,7 @@ datos_filtrados <- datos_filtrados %>%
 ```
 
 Y ya empezamos con los graficos:
+
 ```{r}
 ggplot(datos_filtrados, aes(x = "", y = Porcentaje_Sexo, fill = Sexo)) +
   geom_bar(stat = "identity", width = 1, color = "white") +   # Crear barras apiladas
@@ -122,10 +125,12 @@ ggplot(datos_filtrados, aes(x = "", y = Porcentaje_Sexo, fill = Sexo)) +
   geom_text(aes(label = paste0(round(Porcentaje_Sexo, 1), "%")),
             position = position_stack(vjust = 0.5), size = 5) # Añadir etiquetas porcentuales
 ```
+
 En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.
 
 
 Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables:
+
 ```{r}
 # Filtrar los datos para excluir "Todas las edades"
 datos_por_edad <- datos %>%
@@ -150,10 +155,12 @@ ggplot(datos_por_edad, aes(x = "", y = Porcentaje_Grupo, fill = `Grupos de edad`
   geom_text(aes(label = paste0(round(Porcentaje_Grupo, 1), "%")),
             position = position_stack(vjust = 0.5), size = 5)     # Añadir etiquetas porcentuales
 ```
+
 Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.
 
 
 También haremos un gráfico de barras con el núemero de personas en cada grupo de edad
+
 ```{r}
 # Filtrar y agrupar los datos para obtener el total por grupo de edad
 datos_por_edad <- datos %>%
@@ -218,9 +225,9 @@ ggplot(proporciones_titulares, aes(x = "", y = Proporción, fill = `Clase de tit
 
 
 
-
 Ahora vamos a trabajar con los segundos datos que hemos importado.
 Haremos primero un gáfico de barras con la producción por países el año 2023
+
 ```{r}
 
 # Filtrar datos para el año 2023
@@ -247,8 +254,8 @@ ggplot(data_2023, aes(x = reorder(geo, Total_Production), y = Total_Production))
 ```
 
 
-
 Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años
+
 ```{r}
 # Filtrar los datos para Francia
 data_france <- datos_prod %>%
@@ -266,6 +273,7 @@ ggplot(data_france, aes(x = TIME_PERIOD, y = Total_Production)) +
 ```
 
 Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años
+
 ```{r}
 library(ggplot2)
 data_spain <- datos_prod %>%
@@ -284,6 +292,7 @@ ggplot(data_spain, aes(x = TIME_PERIOD, y = Total_Production)) +
 
 
 Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa
+
 ```{r}
 # Filtrar datos para el año 2023
 data_2023 <- datos_prod %>%
@@ -308,6 +317,7 @@ ggplot(summary_data, aes(x = "", y = Total_Production, fill = Category)) +
 ```
 
 La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción
+
 ```{r}
 # Filtrar datos para el año 2023 y excluir agrupaciones no deseadas
 data_2023 <- datos_prod %>%
@@ -345,6 +355,7 @@ ggplot(summary_data, aes(x = "", y = Total_Production, fill = Category)) +
 ```
 
 Como vemos, los tres países con mayor producción agraria suman casi el 45% de la producción total europea, veamos qué pasa si añadimos España que era el cuarto:
+
 ```{r}
 data_2023 <- datos_prod %>%
   filter(TIME_PERIOD == 2023) %>%
@@ -376,7 +387,10 @@ ggplot(summary_data, aes(x = "", y = Total_Production, fill = Category)) +
   geom_text(aes(label = paste0(Category, ": ", round(Total_Production / sum(Total_Production) * 100, 1), "%")),
             position = position_stack(vjust = 0.5), size = 4)
 ```
+
+
 Comparativa por países
+
 ```{r}
 # Filtrar datos para eliminar países con más de una palabra en el nombre
 data_filtered_cleaned <- data_filtered %>%
@@ -396,6 +410,7 @@ ggplot(data_filtered_cleaned, aes(x = TIME_PERIOD, y = OBS_VALUE, fill = geo)) +
 ```
 
 Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices
+
 ```{r}
 #Vamos a arreglarlos un poco para no tener que estar haciéndolo en cada apartado:
 # Filtrar el dataset eliminando países con nombres de más de una palabra
@@ -420,6 +435,7 @@ ggplot(data_germany, aes(x = TIME_PERIOD, y = OBS_VALUE, color = geo)) +
 ```
 
 Veamos ahora los precios en España:
+
 ```{r}
 data_spain <- data_cleaned %>%
   filter(geo == "Spain")
@@ -435,6 +451,7 @@ ggplot(data_spain, aes(x = TIME_PERIOD, y = OBS_VALUE, color = geo)) +
 ```
 
 Ahora haremos la media de todos los países:
+
 ```{r}
 # Calcular la media global por año
 global_mean <- data_cleaned %>%
