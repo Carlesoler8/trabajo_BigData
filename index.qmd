@@ -1,6 +1,6 @@
 ---
 title: "Análisis sectorial agrícola en España"
-image: "/Users/carlesoler8/Desktop/treball final R/imagenes/bg3.jpg.webp"
+image: "imagenes/origen-de-la-naranja.jpg"
 
 descripcion: |
   Explorando las tendencias y características del sector agrícola español a partir de un análisis de datos detallado.
@@ -41,25 +41,19 @@ España, con su diversidad climática y geográfica, ofrece una gran variedad de
 En este trabajo, se presentan los datos procesados y analizados desde una perspectiva multidimensional para proporcionar una visión integral de la agricultura en España.
 
 ------------------------------------------------------------------------
-## Foto
-![origen de la naranja](https://naranjasmarisa.com/wp-content/uploads/2020/05/origen-de-la-naranja.jpg)
+##![origen de la naranja](https://naranjasmarisa.com/wp-content/uploads/2020/05/origen-de-la-naranja.jpg)
+
 ---
 ## Metodología y fuentes de datos
-
 El análisis se basa en datos obtenidos de fuentes oficiales como el Ministerio de Agricultura, Pesca y Alimentación (MAPA), así como bases de datos abiertas relacionadas con el sector agrícola. Los datos han sido preprocesados para garantizar su limpieza y consistencia, y posteriormente se han explorado utilizando herramientas estadísticas y visualizaciones gráficas.
 Hemos importado los datos usando el comando import del paquete rio tal que así:
-
-
 ```{r}
 datos <- rio::import("datos/1101.csv")
 datos_prod <- rio::import("datos/agricultura_prod.csv")
 datos_precios <- rio::import("datos/agricultura_precios.csv")
 ```
 
-
 Luego para crear cada grafico hemos agrupado los datos de distintas maneras con el paquete "dplyr". Así se agrupan por sexo, tipo de titular y grupo de edad:
-
-
 ```{r}
 #install.packages("dplyr")
 library(dplyr)
