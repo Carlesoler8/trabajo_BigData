@@ -2,11 +2,11 @@
 title: "Análisis sectorial agrícola en España"
 image: "/Users/carlesoler8/Desktop/treball final R/imagenes/bg3.jpg.webp"
 
-description: |
+descripcion: |
   Explorando las tendencias y características del sector agrícola español a partir de un análisis de datos detallado.
-abstract: Este documento presenta un análisis sectorial agrícola en España, explorando datos clave sobre producción, superficies cultivadas y distribución geográfica. Los resultados ofrecen una visión global del sector, destacando tendencias y posibles áreas de mejora.
+abstracto: Este documento presenta un análisis sectorial agrícola en España, explorando datos clave sobre producción, superficies cultivadas y distribución geográfica. Los resultados ofrecen una visión global del sector, destacando tendencias y posibles áreas de mejora.
 
-author:
+autores:
 - name: Carles Soler Sanchis (carsosa3@alumni.uv.es)  
   affiliation: Universitat de València
   affiliation-url: https://www.uv.es
@@ -15,9 +15,9 @@ author:
   affiliation-url: https://www.uv.es
 
 
-date: 2024-12-30
+fecha: 2024-12-30
 
-categories: [trabajo BigData, agricultura]  
+categorias: [trabajo BigData, agricultura]  
 
 format:
   html:
@@ -32,7 +32,7 @@ title-block-banner-color: green
 css: assets/my_styles.css         
 ---
 
-## Introducción
+## Intro 
 
 El sector agrícola es una pieza clave en la economía y el desarrollo social de España. Este análisis tiene como objetivo estudiar las principales tendencias y características de este sector, utilizando un enfoque basado en datos para identificar patrones en la producción agrícola, distribución de cultivos y rendimiento por región.
 
@@ -41,10 +41,10 @@ España, con su diversidad climática y geográfica, ofrece una gran variedad de
 En este trabajo, se presentan los datos procesados y analizados desde una perspectiva multidimensional para proporcionar una visión integral de la agricultura en España.
 
 ------------------------------------------------------------------------
-### Imagen:
-![](/Users/carlesoler8/Desktop/treball final R/trabajofinalAgricola/imagenes/bg3.jpg.webp){fig-align="center"}
+## Foto
+![origen de la naranja](https://naranjasmarisa.com/wp-content/uploads/2020/05/origen-de-la-naranja.jpg)
 ---
-### Metodología y fuentes de datos
+## Metodología y fuentes de datos
 
 El análisis se basa en datos obtenidos de fuentes oficiales como el Ministerio de Agricultura, Pesca y Alimentación (MAPA), así como bases de datos abiertas relacionadas con el sector agrícola. Los datos han sido preprocesados para garantizar su limpieza y consistencia, y posteriormente se han explorado utilizando herramientas estadísticas y visualizaciones gráficas.
 Hemos importado los datos usando el comando import del paquete rio tal que así:
