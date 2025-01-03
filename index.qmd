@@ -475,6 +475,7 @@ ggplot(combined_data, aes(x = TIME_PERIOD)) +
 
 Predomina la participación masculina en el sector agrícola, con una notable brecha de género.
 Además se refleja un envejecimiento de la fuerza laboral.
+
 2. Producción agrícola
 
 España contribuye con el 2.5% de la producción agrícola europea, superada por países como Francia y Alemania. Aquí todo y qye las explotaciones más grandes aportan mayor producción, las pequeñas son predominantes en número, los minifundios.
