@@ -41,19 +41,24 @@ España, con su diversidad climática y geográfica, ofrece una gran variedad de
 En este trabajo, se presentan los datos procesados y analizados desde una perspectiva multidimensional para proporcionar una visión integral de la agricultura en España.
 
 ------------------------------------------------------------------------
-##![origen de la naranja](https://naranjasmarisa.com/wp-content/uploads/2020/05/origen-de-la-naranja.jpg)
+
+## ![origen de la naranja](https://naranjasmarisa.com/wp-content/uploads/2020/05/origen-de-la-naranja.jpg)
 
 ---
+
 ## Metodología y fuentes de datos
-El análisis se basa en datos obtenidos de fuentes oficiales como el Ministerio de Agricultura, Pesca y Alimentación (MAPA), así como bases de datos abiertas relacionadas con el sector agrícola. Los datos han sido preprocesados para garantizar su limpieza y consistencia, y posteriormente se han explorado utilizando herramientas estadísticas y visualizaciones gráficas.
+
+El análisis se basa en datos obtenidos de fuentes oficiales como el Ministerio de Agricultura, Pesca y Alimentación (MAPA), así como bases de datos abiertas relacionadas con el sector agrícola. Los datos han sido procesados para garantizar su limpieza y consistencia, y posteriormente se han explorado utilizando herramientas estadísticas y visualizaciones gráficas.
 Hemos importado los datos usando el comando import del paquete rio tal que así:
+
 ```{r}
 datos <- rio::import("datos/1101.csv")
 datos_prod <- rio::import("datos/agricultura_prod.csv")
 datos_precios <- rio::import("datos/agricultura_precios.csv")
 ```
 
-Luego para crear cada grafico hemos agrupado los datos de distintas maneras con el paquete "dplyr". Así se agrupan por sexo, tipo de titular y grupo de edad:
+Luego, para crear cada gráfico hemos agrupado los datos de distintas maneras con el paquete "dplyr". Así se agrupan por sexo, tipo de titular y grupo de edad:
+
 ```{r}
 #install.packages("dplyr")
 library(dplyr)
@@ -96,8 +101,9 @@ total_todas_edades <- sum(datos_filtrados$Total_Grupo, na.rm = TRUE)
 ------------------------------------------------------------------------
 
 ## Resultados preliminares
-Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a traves de algunos graficos.
-Primero cargar paquetes que vayamos a necesitar para crear los graficos:
+
+Ahora vamos a ver algunos resultados que hemos conseguido con nuestra investigación reflejados a través de algunos gráficos.
+Primero cargar paquetes que vayamos a necesitar para crear los gráficos:
 
 ```{r}
 #install.packages("ggplot2")
@@ -105,7 +111,7 @@ library(ggplot2)
 
 ```
 
-Seguidamente arreglar un poco los datos para que quede todo correctamente:
+Seguidamente, arreglar un poco los datos para que quede todo correctamente:
 
 ```{r}
 # Recalcular los porcentajes
@@ -113,7 +119,7 @@ datos_filtrados <- datos_filtrados %>%
   mutate(Porcentaje_Sexo = (Total_Grupo / total_todas_edades) * 100)
 ```
 
-Y ya empezamos con los graficos:
+Y ya empezamos con los gráficos:
 
 ```{r}
 ggplot(datos_filtrados, aes(x = "", y = Porcentaje_Sexo, fill = Sexo)) +
@@ -126,10 +132,10 @@ ggplot(datos_filtrados, aes(x = "", y = Porcentaje_Sexo, fill = Sexo)) +
             position = position_stack(vjust = 0.5), size = 5) # Añadir etiquetas porcentuales
 ```
 
-En este grafico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres són los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.
+En este gráfico podemos ver como la diferencia de sexo entre los titulares de los campos de cultivo en España ya es significativa. Los hombres son los titulares de más del 70% de estas tierras, dejando tan solo el 30% restante a las mujeres.
 
 
-Ahora vamos a ver la distribución por edades y así ver que franja de edad tiene más porcentage de tierras cultivables:
+Ahora vamos a ver la distribución por edades y así ver qué franja de edad tiene más porcentaje de tierras cultivables:
 
 ```{r}
 # Filtrar los datos para excluir "Todas las edades"
@@ -156,10 +162,10 @@ ggplot(datos_por_edad, aes(x = "", y = Porcentaje_Grupo, fill = `Grupos de edad`
             position = position_stack(vjust = 0.5), size = 5)     # Añadir etiquetas porcentuales
 ```
 
-Como podems observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempor a heredar y a comprar tierras así como a que el trabajo del agricultor esta cada vez más envejecido.
+Como podemos observar, como va aumentando la franja de edad, es más la cantidad de tierras que se obtiene. Esto es debido tanto a que al largo de la vida de uno tiene más tiempo a heredar y a comprar tierras, así como a que el trabajo del agricultor está cada vez más envejecido.
 
 
-También haremos un gráfico de barras con el núemero de personas en cada grupo de edad
+También haremos un gráfico de barras con el número de personas en cada grupo de edad:
 
 ```{r}
 # Filtrar y agrupar los datos para obtener el total por grupo de edad
@@ -193,7 +199,7 @@ ggplot(datos_por_edad, aes(x = reorder(`Grupos de edad`, -Total_Grupo), y = Tota
             vjust = -0.5, size = 5)
 ```
 
-Ahora haremos un gráfico para ver en qué proporción los titulares son solo titulares o también trabajan en sus tierras
+Ahora haremos un gráfico para ver en qué proporción los titulares son solo titulares o también trabajan en sus tierras:
 
 ```{r}
 # Agrupar por Clase de titular
@@ -226,7 +232,7 @@ ggplot(proporciones_titulares, aes(x = "", y = Proporción, fill = `Clase de tit
 
 
 Ahora vamos a trabajar con los segundos datos que hemos importado.
-Haremos primero un gáfico de barras con la producción por países el año 2023
+Haremos primero un gráfico de barras con la producción por países el año 2023:
 
 ```{r}
 
@@ -254,7 +260,7 @@ ggplot(data_2023, aes(x = reorder(geo, Total_Production), y = Total_Production))
 ```
 
 
-Como vemos, Francia fue el país con más producció agrícola en 2023 así que vamos a ver su evolución a lo largo de los años
+Como vemos, Francia fue el país con más producción agrícola en 2023. Vamos a ver su evolución a lo largo de los años:
 
 ```{r}
 # Filtrar los datos para Francia
@@ -272,7 +278,7 @@ ggplot(data_france, aes(x = TIME_PERIOD, y = Total_Production)) +
   theme_minimal()
 ```
 
-Obviamente nos interesa más España así que veamos también su evolución a lo largo de los años
+Obviamente, nos interesa más España, así que veamos también su evolución a lo largo de los años:
 
 ```{r}
 library(ggplot2)
@@ -284,39 +290,15 @@ data_spain <- datos_prod %>%
 # Crear el gráfico de barras
 ggplot(data_spain, aes(x = TIME_PERIOD, y = Total_Production)) +
   geom_bar(stat = "identity", fill = "skyblue", color = "black") +
-  labs(title = "Evolución de la Producción Agrícola en Francia",
+  labs(title = "Evolución de la Producción Agrícola en España",
        x = "Año",
        y = "Producción Agrícola (Millones de Euros)") +
   theme_minimal()
 ```
 
+Tal y como podemos observar, tanto España como Francia han seguido un crecimiento similar los últimos años, ascendiente pero moderado.
 
-Y ahora haremos un gráfico circular para ver la proporción de la producción agrícola de España respecto a la del resto de Europa
-
-```{r}
-# Filtrar datos para el año 2023
-data_2023 <- datos_prod %>%
-  filter(TIME_PERIOD == 2023)
-
-# Calcular la producción agrícola de España y del resto de Europa
-summary_data <- data_2023 %>%
-  mutate(Category = ifelse(geo == "Spain", "España", "Resto de Europa")) %>%
-  group_by(Category) %>%
-  summarise(Total_Production = sum(OBS_VALUE, na.rm = TRUE))
-
-# Crear el gráfico circular
-ggplot(summary_data, aes(x = "", y = Total_Production, fill = Category)) +
-  geom_bar(stat = "identity", width = 1, color = "white") +
-  coord_polar(theta = "y") +
-  scale_fill_manual(values = c("España" = "red", "Resto de Europa" = "blue")) +
-  labs(title = "Proporción de la Producción Agrícola Española vs Resto de Europa (2023)",
-       fill = "Categoría") +
-  theme_void() +
-  geom_text(aes(label = paste0(round(Total_Production / sum(Total_Production) * 100, 1), "%")),
-            position = position_stack(vjust = 0.5), size = 5)
-```
-
-La producción de España fue solo el 2.5% del total de Europa, pero veamos qué porcentaje fue la de los 3 países con mayor producción
+Ahora observemos un gráfico que muestra el porcentaje de producción agrícola de los tres países con mayor producción en comparación con el resto de Europa:
 
 ```{r}
 # Filtrar datos para el año 2023 y excluir agrupaciones no deseadas
@@ -388,8 +370,9 @@ ggplot(summary_data, aes(x = "", y = Total_Production, fill = Category)) +
             position = position_stack(vjust = 0.5), size = 4)
 ```
 
+De esta manera ya vemos que tan solo 4 países producen más de la mitad de la producción agricula en Europa, lo que es un claro indicador de que la distribución es muy desigual, concentrandose la mayoria en estos países.
 
-Comparativa por países
+Otro grafico con la comparativa por países:
 
 ```{r}
 # Filtrar datos para eliminar países con más de una palabra en el nombre
@@ -409,7 +392,7 @@ ggplot(data_filtered_cleaned, aes(x = TIME_PERIOD, y = OBS_VALUE, fill = geo)) +
   )
 ```
 
-Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices
+Finalmente, vamos a trabajar con los últimos datos para ver un poco la evolución de precios y algunos índices:
 
 ```{r}
 #Vamos a arreglarlos un poco para no tener que estar haciéndolo en cada apartado:
@@ -484,18 +467,20 @@ ggplot(combined_data, aes(x = TIME_PERIOD)) +
   )
 ```
 
+Se aprecia que España sigue una tendencia muy similar a la media global europea. Eso sí, Alemania vemos como en 2018 y 2019 subió de más el precio debido a una intensa sequía que redujo significativamente las cosechas de maíz y otros cultivos en Alemania y países vecinos, lo que llevó a una disminución de la oferta y, consecuentemente, al alza de los precios.
 
 ------------------------------------------------------------------------
 
 ## Conclusiones
+
 1. Demografía agrícola
 
 Predomina la participación masculina en el sector agrícola, con una notable brecha de género.
-Además se refleja un envejecimiento de la fuerza laboral.
+Además, se refleja un envejecimiento de la fuerza laboral.
 
 2. Producción agrícola
 
-España contribuye con el 2.5% de la producción agrícola europea, superada por países como Francia y Alemania. Aquí todo y qye las explotaciones más grandes aportan mayor producción, las pequeñas son predominantes en número, los minifundios.
+España contribuye con el 11,8% a la producción agrícola europea, superada tan solo por Francia, Alemania y Italia. España en parte no tiene un mayor porcentaje debido a que aquí todo y que las explotaciones más grandes aportan mayor producción, las predominantes son las pequeñas, sobre todo los minifundios.
 
 3. Retos y oportunidades
 
